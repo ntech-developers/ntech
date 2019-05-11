@@ -1,0 +1,71 @@
+.input-layer {
+    margin: 30px auto;
+    width: 98%;
+    max-width: 400px;
+    position: relative;
+    height: 30px;
+}
+
+.flash, .flash-inactive {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    background: #b1b1b1;
+    margin: 0 auto;
+    height: 1px;
+    width: 0;
+    z-index: 20;
+    transition: all 0.5s cubic-bezier(.08, .7, 0, 1.03);
+}
+
+.flash-active {
+    width: 100%;
+    background: #3d8aff;
+    z-index: 10;
+}
+
+.placeholder {
+    background: transparent;
+    z-index: 20;
+    display: block;
+    font-family: Calibri, sans-serif;
+    font-size: 100%;
+    position: absolute;
+    top: 0;
+    height: 97%;
+    width: 100%;
+    pointer-events: none;
+    color: #5a5a5a;
+    transition: all 0.5s cubic-bezier(.08, .7, 0, 1.03);
+
+}
+
+.placeholder-raised {
+    top: -60%;
+    color: #3d8aff;
+    font-size: 80%;
+}
+
+form {
+    height: 100%;
+}
+
+input {
+    border: none;
+    background: transparent;
+}
+
+.flash-inactive {
+    background: #b1b1b1;
+    width: 100%;
+    z-index: 5;
+}
+
+.data {
+    height: 97%;
+    font-family: "Segoe UI", Calibri, sans-serif;
+    font-size: 110%;
+    position: absolute;
+    top: 0;
+    padding: 0;
+}

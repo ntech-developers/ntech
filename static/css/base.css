@@ -1,0 +1,147 @@
+body {
+    height: 100vh;
+    margin: 2px;
+    width: 100%;
+    overflow: hidden;
+    background: url("../../images/topleftintersect.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+div, button, a, span, i, input {
+    -webkit-tap-highlight-color: transparent;
+    outline: transparent;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    height: 10%;
+    width: 100%;
+}
+
+.content {
+    height: 90%;
+    width: 100%;
+    overflow: auto;
+}
+
+.under-shadow {
+    box-shadow: -10px 0 5px 0 #bbb;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    height: auto;
+    position: relative;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.center {
+    display: inline-flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.img {
+    width: 38%;
+}
+
+.wide-img {
+    width: 96%;
+    max-width: 700px;
+}
+
+.medium-description {
+    color: #5a5a5a;
+    font-size: 110%;
+    font-family: "Segoe UI", Calibri, sans-serif;
+}
+
+.large-description {
+    color: #5a5a5a;
+    font-size: 200%;
+    font-family: "Segoe UI", Calibri, sans-serif;
+    text-align: center;
+}
+
+.small-description {
+    color: #5a5a5a;
+    font-size: 100%;
+    font-family: Calibri, sans-serif;
+    text-align: center;
+}
+
+.blue {
+    color: #3d8aff;
+}
+
+.blue-btn {
+    font-size: 120%;
+    color: #0070c0;
+    border-radius: 15px;
+    border: solid 1px #0070c0;
+    transition: all 0.5s linear;
+    cursor: pointer;
+    background: transparent;
+    font-family: Calibri, sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    height: 30px;
+}
+
+.blue-btn:hover {
+    background: #0070c0;
+    color: #f7f7f7;
+}
+
+.ruled {
+    border-bottom: solid 1px #ccc;
+}
+
+.waypoint, .waypoint-side {
+    opacity: 0;
+    position: relative;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        top: 350px;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        left: -100px;
+    }
+    to {
+        opacity: 1;
+        left: 0;
+    }
+}
+
+.slide-up {
+    animation: slideUp 1s cubic-bezier(.08, .7, 0, 1.03) forwards;
+}
+
+.slide-right {
+    animation: slideRight 1s cubic-bezier(.08, .7, 0, 1.03) forwards;
+}

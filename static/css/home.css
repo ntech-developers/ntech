@@ -1,0 +1,134 @@
+#main-desc {
+    margin-top: 30px;
+    height: auto;
+}
+
+.commentary {
+    height: auto;
+    background: rgba(204, 216, 255, 0.4);
+    color: #3d8aff;
+    position: relative;
+    max-width: 700px;
+    margin: 30px 1% 30px 1%;
+    border-radius: 20px;
+    display: inline-grid;
+    width: 29%;
+    top: 0;
+    padding: 4px;
+}
+
+.right-img {
+    float: right;
+    right: -20px;
+    left: unset !important;
+}
+
+.commentor {
+    font-style: italic;
+    color: #0070c0;
+    font-size: 80%;
+}
+
+.commentary img {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 0;
+    top: -20px;
+    border-radius: 20px;
+    box-shadow: 0 0 3px 2px #aaa;
+}
+
+#commentaries {
+    padding-left: 1%;
+    padding-right: 1%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.comm-text {
+    margin: 0 4px 4px;
+    text-align: left !important;
+    position: relative;
+    top: -15px;
+}
+
+#logo-img {
+    height: 300px;
+}
+
+#social {
+
+}
+
+.social-link {
+    display: inline-block;
+    width: 24%;
+    height: 100px;
+    text-align: center;
+    max-width: 220px;
+    cursor: pointer;
+}
+
+.social-link i, .social-link i::before {
+    font-size: 200%;
+    color: #5a5a5a;
+    display: block;
+}
+
+.social-link span {
+    color: #0070c0;
+    font-family: "Edwardian Script ITC", Calibri, sans-serif;
+    font-size: 130%;
+}
+
+#social-intro {
+    border-color: #f7f7f7;
+    color: #0070c0;
+    margin: 0 auto;
+    width: 95%;
+}
+
+@media screen and (max-width: 600px) {
+    #main-desc {
+        display: block;
+    }
+
+    #logo-img {
+        display: block;
+        width: 96%;
+        max-height: 300px;
+        margin: 0 auto 20px;
+    }
+
+    #main-desc-text {
+        width: 96%;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+
+    .commentary {
+        display: block;
+        width: 90%;
+        margin: 30px auto;
+        border-left: solid 2px #3d8aff;
+    }
+
+    .commentary img {
+        left: -20px;
+    }
+
+    #commentaries {
+        padding: 0 0 30px 0;
+        display: block;
+
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #map-img {
+        max-height: 300px;
+    }
+}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+    {% comment "additional stylesheets for this template go here" %}{% endcomment %}
+    <link rel="stylesheet" href={% static "css/forms.css" %}>
+{% endblock %}
+{% block content %}
+    <form>
+        <div class="input-layer">
+            <span class="placeholder">Email</span>
+            <input id="email" type="text" name="email" class="data" title="email"/><br>
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+        </div>
+        <div class="input-layer">
+            <span class="placeholder">Confirm Email</span>
+            <input id="email2" type="text" name="email2" class="data" title="confirm email"/><br>
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+        </div>
+        <div class="input-layer">
+            <span class="placeholder">Full name</span>
+            <input id="name" type="text" class="data" name="name" title="name"/><br>
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+        </div>
+        <div class="input-layer">
+            <span class="placeholder">Alias</span>
+            <input id="alias" type="text" name="alias" class="data" title="alias"/><br>
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+        </div>
+        <div class="input-layer">
+            <span class="placeholder">Password</span>
+            <input id="password" type="password" class="data" name="password" title="password"/><br>
+            <div class="flash left"></div>
+            <div class="flash right"></div>
+            <div class="flash-inactive"></div>
+        </div>
+        <div class="input-layer">
+            <span class="placeholder">Confirm Password</span>
+            <input id="password2" type="password" class="data" name="password2" title=" confirm password"/><br>
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+        </div>
+    </form>
+{% endblock %}

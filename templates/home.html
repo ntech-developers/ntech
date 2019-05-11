@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+    {% comment "additional stylesheets for this template go here" %}{% endcomment %}
+    <link rel="stylesheet" href={% static "css/home.css" %}>
+{% endblock %}
+{% block content %}
+    <div id="main-desc" class="container medium-description waypoint">
+        <img id="logo-img" class="left img" src={% static "images/ntech.png" %}/>
+        <div id="main-desc-text" class="medium-description">
+            {% lorem 1 p %}
+        </div>
+    </div>
+    <div class="container ruled waypoint" style="height: 40px; margin-top: 20px;padding-bottom: 20px">
+        <a href={% url "accounts:register" %}>
+            <button class="blue-btn center" style="width: 120px;">Register</button>
+        </a>
+    </div>
+    <p class="large-description blue waypoint">Currently involving three countries</p>
+    <div class="container">
+        <img id="map-img" class="wide-img center waypoint" alt="countries-kenya-uganda-rwanda"
+             src={% static "images/map.png" %}/>
+    </div>
+    <div id="commentaries" class="ruled">
+        <div class="commentary waypoint-side" style="background: rgba(225, 77, 17, 0.28)">
+            <img class="comm-prof-img" src={% static "images/rwanda.jpg" %}/>
+            <p class="small-description comm-text"> {% lorem 30 w random %}</p>
+            <p class="commentor right">~ Resire, Rwanda</p>
+        </div>
+        <div class="commentary waypoint-side" style="background: rgba(113, 197, 241, 0.24)">
+            <img class="comm-prof-img" src={% static "images/uganda.jpg" %}/>
+            <p class="small-description comm-text"> {% lorem 30 w random %}</p>
+            <p class="commentor right">~ Silas, Uganda</p>
+        </div>
+        <div class="commentary waypoint-side terminate" style="background: rgba(171, 141, 193, 0.28);">
+            <img class="comm-prof-img" src={% static "images/kenya.jpg" %}/>
+            <p class="small-description comm-text"> {% lorem 30 w random %}</p>
+            <p class="commentor right">~ Ronald, Kenya</p>
+        </div>
+    </div>
+    <p class="large-description container waypoint" id="social-intro" style="margin-top: 40px;">Know more about us</p>
+    <p class="small-description container waypoint" style=";max-width: 600px; margin: 0 auto">Follow, Add and and friend
+        us on all popular platforms
+        and get to experience the great things we do. Find our groundbreaking creations on github. We really hope you
+        can
+        add to our vast collection.</p>
+    <div class="container" id="social">
+        <div class="social-link waypoint-side">
+            <a href="#">
+                <i class="ion-social-instagram"></i>
+                <span>Instagram</span>
+            </a>
+        </div>
+        <div class="social-link waypoint-side">
+            <i class="ion-social-facebook"></i>
+            <span>Facebook</span>
+        </div>
+        <div class="social-link waypoint-side">
+            <i class="ion-social-twitter"></i>
+            <span>Twitter</span>
+        </div>
+        <div class="social-link waypoint-side terminate">
+            <i class="ion-social-github"></i>
+            <span>Github</span>
+        </div>
+    </div>
+{% endblock %}
