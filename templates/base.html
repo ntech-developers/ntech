@@ -14,9 +14,15 @@
     <script src={% static "js/util.js" %}></script>
 </head>
 <body>
-<div class="header ruled"></div>
+<div class="header ruled">
+    {% block header %}
+        {% comment "Menu and other header content go here" %}{% endcomment %}
+    {% endblock %}
+</div>
 <div class="content">
-    {% block content %}{% endblock %}
+    {% block content %}
+        {% comment "the main content of the extending template go here" %}{% endcomment %}
+    {% endblock %}
 </div>
 <script src={% static "js/util.js" %}></script>
 <script src={% static "js/waypoints.js" %}></script>

@@ -4,44 +4,196 @@
     {% comment "additional stylesheets for this template go here" %}{% endcomment %}
     <link rel="stylesheet" href={% static "css/forms.css" %}>
 {% endblock %}
+{% block header %}
+    <div class="menubar">
+        <p class="logo-text menubar left"><img alt="ntech-logo" src={% static "images/favicon.png" %}>tech</p>
+        <ul id="menubar" class="menubar left" role="menubar">
+            <li class="menuitem"><a href={% url "info:home" %}>Home</a></li>
+            <li class="menuitem"><a href="#">Schedule</a></li>
+            <li class="menuitem"><a href="#">FAQ</a></li>
+            <li class="menuitem"><a href="#">About</a></li>
+        </ul>
+    </div>
+    <div id="menu-actions" class="menubar force-right">
+        <a class="medium-description blue"><i class="ion-ios-person"></i>&nbsp;Sign in</a>
+    </div>
+    <p id="menu-btn" class="menubar force-right" style="padding: 0 10px 0 10px"><i
+            class="ion-android-menu medium-description" style="font-size: 1.5em"></i></p>
+{% endblock %}
 {% block content %}
-    <form>
-        <div class="input-layer">
+    <div class="overlay hidden">
+        <!--For responsive menu. Ensure it is present for pages with the responsive menu-->
+        <div id="menu-list" class="ruled">
+            <ul role="menubar">
+                <li class="menuitem-v"><a href={% url "info:home" %}><i class="ion-ios-home"></i>Home</a></li>
+                <li class="menuitem-v"><a href="#"><i class="ion-ios-stopwatch blue"></i>Schedule</a></li>
+                <li class="menuitem-v"><a href="#"><i class="ion-help-circled blue"></i>FAQ</a></li>
+                <li class="menuitem-v"><a href="#"><img width="20px" height="20px" alt="ntect-logo"
+                                                        src={% static "images/favicon.png" %}>&nbsp;About</a></li>
+            </ul>
+            <hr style="width: 80%;margin: 20px auto">
+            <ul role="menubar">
+                <li class="menuitem-v blue"><a href={% url "accounts:register" %}><i class="ion-ios-person"></i>Register</a>
+                </li>
+                <li class="menuitem-v blue"><a href="#"><i class="ion-log-in blue"></i>Sign in</a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="large-description container waypoint">Ntech Hackathon registration 2019</p>
+    <p class="medium-description container waypoint center-text">
+        The details below are required for individual registrations. If you wish to enter the hackathon <br>
+        as a team, each team member should complete the individual registration<br>
+        before proceeding to team registration
+    </p>
+    <div class="container waypoint" style="height: 40px; margin-top: 20px;padding-bottom: 20px">
+        <a href="#">
+            <button class="blue-btn center" style="width: 180px;margin: 10px auto">Team registration</button>
+        </a>
+    </div>
+    <hr style="width: 80%;margin: 15px auto 10px" class="waypoint"/>
+    <p class=" container medium-description waypoint" style="color: #3d8aff">Individual registration</p>
+    <form autocomplete="off" spellcheck="false">
+        <div class="container small-description blue waypoint">Contact information</div>
+        <div class="input-layer waypoint-side">
             <span class="placeholder">Email</span>
             <input id="email" type="text" name="email" class="data" title="email"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
         </div>
-        <div class="input-layer">
+        <div class="input-layer waypoint-side">
             <span class="placeholder">Confirm Email</span>
             <input id="email2" type="text" name="email2" class="data" title="confirm email"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
         </div>
-        <div class="input-layer">
+        <div class="input-layer waypoint-side">
             <span class="placeholder">Full name</span>
             <input id="name" type="text" class="data" name="name" title="name"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
         </div>
-        <div class="input-layer">
-            <span class="placeholder">Alias</span>
-            <input id="alias" type="text" name="alias" class="data" title="alias"/><br>
+        <div class="container limit-width ruled">
+            <span class="placeholder" style="margin-bottom: 15px;height: 30px;">Mobile contact</span>
+            <div class="input-layer select-layer" tabindex="0">
+                <input class="value-point" type="text" hidden/>
+                <div class="select-val">+<span>254</span> &nbsp;<i class="ion-chevron-down"></i></div>
+                <input class="block-input" placeholder="example 712345678" type="number">
+                <div class="select">
+                    <span class="option">254</span>
+                    <span class="option">250</span>
+                    <span class="option">256</span>
+                </div>
+            </div>
+        </div>
+        <div class="input-layer waypoint-side">
+            <span class="placeholder">username</span>
+            <input id="username" type="text" name="username" class="data" title="alias"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
         </div>
-        <div class="input-layer">
+        <div class="container limit-width waypoint" style="display: block">
+            <p class="container small-description">
+                security information. Use a strong alphanumeric password preferably above 90%
+            </p>
+            <span id="strength-lbl" class="small-description" style="width:30%">Strength</span>
+            <div id="strength">
+                <div id="strength-bar"></div>
+            </div>
+            <span id="strength-val" class="small-description">0 %</span>
+        </div>
+        <div class="input-layer waypoint-side">
             <span class="placeholder">Password</span>
             <input id="password" type="password" class="data" name="password" title="password"/><br>
             <div class="flash left"></div>
             <div class="flash right"></div>
             <div class="flash-inactive"></div>
         </div>
-        <div class="input-layer">
+        <div class="input-layer waypoint-side terminate">
             <span class="placeholder">Confirm Password</span>
             <input id="password2" type="password" class="data" name="password2" title=" confirm password"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
         </div>
+        <p class=" container medium-description waypoint" style="color: #3d8aff">Classification information</p>
+        <div class="container limit-width">
+            <div class="input-layer select-layer" style="width: 100%" tabindex="0">
+                <input class="value-point" id="institution" name="institution" type="text" hidden/>
+                <div class="select-val"><span>Select Institution</span> &nbsp;<i class="ion-chevron-down"></i></div>
+                <div class="select">
+                    <span class="option">&nbsp;Select Institution</span>
+                    {% for institution in institutions %}
+                        <span class="option">&nbsp;{{ institution }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <p class="container limit-width waypoint small-description">
+            If your institution is not available fill in the other section below
+        </p>
+        <div class="input-layer waypoint-side">
+            <span class="placeholder">Other</span>
+            <input id="new_institution" type="text" class="data" name="institution"/><br>
+            <div class="flash left"></div>
+            <div class="flash right"></div>
+            <div class="flash-inactive"></div>
+        </div>
+        <div class="container limit-width" style="height: 60px">
+            <div class="input-layer select-layer" style="width:48%;margin-right:1%;margin-left: 1%" tabindex="0">
+                <input class="value-point" type="text" hidden/>
+                <div class="select-val"><span>Gender</span> &nbsp;<i class="ion-chevron-down"></i></div>
+                <div class="select">
+                    <span class="option">Male</span>
+                    <span class="option">Female</span>
+                </div>
+            </div>
+            <div class="input-layer select-layer" style="width:48%;margin-right:1%;margin-left: 1%" tabindex="0">
+                <input class="value-point" type="text" hidden/>
+                <div class="select-val"><span>Country</span> &nbsp;<i class="ion-chevron-down"></i></div>
+                <div class="select">
+                    <span class="option"><img class="flag-img" alt="ke"
+                                              src={% static "images/ke.png" %}>&nbsp;Kenya</span>
+                    <span class="option"><img class="flag-img" alt="ug"
+                                              src={% static "images/ug.png" %}>&nbsp;Uganda</span>
+                    <span class="option"><img class="flag-img" alt="rw"
+                                              src={% static "images/rw.png" %}>&nbsp;Rwanda</span>
+                </div>
+            </div>
+        </div>
+        <div class="container limit-width">
+            <div class="input-layer waypoint-side" style="width: 60%">
+                <span class="placeholder placeholder-hidden">Date of birth</span>
+                <input id="dob" type="date" class="data" name="dob" title="date of birth"/>
+                <br>
+                <div class="flash left"></div>
+                <div class="flash right"></div>
+                <div class="flash-inactive"></div>
+            </div>
+            <p class="small-description container" id="age-val" style="width: 40%;align-items: center">Age:&nbsp;
+                <span></span></p>
+        </div>
+        <div class="container limit-width">
+            <div class="input-layer select-layer" style="width: 100%" tabindex="0">
+                <input class="value-point" id="skill" name="skill" type="text" hidden/>
+                <div class="select-val"><span>Select skill</span> &nbsp;<i class="ion-chevron-down"></i></div>
+                <div class="select">
+                    <span class="option">&nbsp;Select skill</span>
+                    <span class="option">&nbsp;Coding</span>
+                    <span class="option">&nbsp;Critical thinking</span>
+                    <span class="option">&nbsp;Graphic design</span>
+                    <span class="option">&nbsp;Electronics</span>
+                    <span class="option">&nbsp;Marketing</span>
+                </div>
+            </div>
+        </div>
+        <p class="container limit-width small-description waypoint">
+            You can select multiple skills and they will appear below.
+        </p>
+        <div id="skill-tags" class="container limit-width tag-container waypoint">
+
+        </div>
+        <div class="container" style="margin:60px 0 60px 0">
+            <button class="blue-btn">Finish registration</button>
+        </div>
     </form>
+    <script src={% static "js/validators.js" %}></script>
 {% endblock %}

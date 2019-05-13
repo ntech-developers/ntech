@@ -1,6 +1,6 @@
 .input-layer {
     margin: 30px auto;
-    width: 98%;
+    width: 95%;
     max-width: 400px;
     position: relative;
     height: 30px;
@@ -42,7 +42,7 @@
 
 .placeholder-raised {
     top: -60%;
-    color: #3d8aff;
+    color: #3d8aff !important;
     font-size: 80%;
 }
 
@@ -68,4 +68,116 @@ input {
     position: absolute;
     top: 0;
     padding: 0;
+    width: 100%;
+}
+
+.select {
+    width: auto;
+    color: #3d8aff;
+    font-family: Calibri, sans-serif;
+    font-size: 100%;
+    list-style: none;
+    transition: all 0.3s ease-in;
+    transform: scale(0);
+    display: block;
+    max-height: 180px;
+    height: auto;
+    position: absolute;
+    box-shadow: 0 0 2px 1px #b1b1b1;
+    border-radius: 0 0 10px 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 500;
+    background: #f7f7f7;
+    padding-top: 5px;
+}
+
+.select-visible {
+    transform: scale(1);
+}
+
+.select .option {
+    height: 30px;
+    display: inline-block;
+    width: 100%;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.select .option:hover {
+    color: #5a5a5a;
+}
+
+.select-val, .block-input {
+    width: auto !important;
+    background: rgba(240, 240, 240, 0.5);
+    height: 40px;
+    padding: 0 20px 0 20px;
+    border-radius: 5px;
+    font-family: Calibri, sans-serif;
+    font-size: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px rgba(90, 90, 90, 0.6);
+    cursor: pointer;
+    transition: all 0.4s ease-in;
+    position: relative;
+}
+
+.select-val i {
+    transition: all 0.5s ease-out;
+}
+
+.select-layer {
+    width: fit-content;
+    overflow: visible;
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.limit-width {
+    width: 96%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.flag-img {
+    width: 20px;
+    height: 15px;
+}
+
+.block-input {
+    height: 40px;
+    width: available;
+}
+
+#strength {
+    height: 4px;
+    background: #f0f0f0;
+    width: 50%;
+    display: inline-flex;
+    transition: all 1s cubic-bezier(.08, .7, 0, 1.03);
+}
+
+#strength div {
+    height: 100%;
+    width: 0;
+    background: #3d8aff;
+    transition: inherit;
+}
+
+#strength-val, #strength-lbl {
+    width: 15%;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-hidden {
+    top: -60%;
+    font-size: 80%;
 }

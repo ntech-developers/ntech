@@ -1,7 +1,7 @@
 function Waypoint(ref) {
     this.ref = ref;
     this.elements = [];
-    self = this;
+    let self = this;
     let is_within = function (element) {
         return element.elem.getBoundingClientRect().y - self.ref.getBoundingClientRect().y + element.offset <= self.ref.getBoundingClientRect().y + self.ref.getBoundingClientRect().height;
     };

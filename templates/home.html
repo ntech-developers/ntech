@@ -4,19 +4,72 @@
     {% comment "additional stylesheets for this template go here" %}{% endcomment %}
     <link rel="stylesheet" href={% static "css/home.css" %}>
 {% endblock %}
+{% block header %}
+    <div class="menubar">
+        <p class="logo-text menubar left"><img alt="ntech-logo" src={% static "images/favicon.png" %}>tech</p>
+        <ul id="menubar" class="menubar left" role="menubar">
+            <li class="menuitem active"><a href="#">Home</a></li>
+            <li class="menuitem"><a href="#">Schedule</a></li>
+            <li class="menuitem"><a href="#">FAQ</a></li>
+            <li class="menuitem"><a href="#">About</a></li>
+        </ul>
+    </div>
+    <div id="menu-actions" class="menubar force-right">
+        <a class="medium-description blue"><i class="ion-ios-person"></i>&nbsp;Sign in</a>
+    </div>
+    <p id="menu-btn" class="menubar force-right" style="padding: 0 10px 0 10px"><i
+            class="ion-android-menu medium-description" style="font-size: 1.5em"></i></p>
+{% endblock %}
 {% block content %}
+    <div class="overlay hidden">
+        <!--For responsive menu. Ensure it is present for pages with the responsive menu-->
+        <div id="menu-list" class="ruled">
+            <ul role="menubar">
+                <li class="menuitem-v active"><a href="#"><i class="ion-ios-home"></i>Home</a></li>
+                <li class="menuitem-v"><a href="#"><i class="ion-ios-stopwatch blue"></i>Schedule</a></li>
+                <li class="menuitem-v"><a href="#"><i class="ion-help-circled blue"></i>FAQ</a></li>
+                <li class="menuitem-v"><a href="#"><img width="20px" height="20px" alt="ntect-logo"
+                                                        src={% static "images/favicon.png" %}>&nbsp;About</a></li>
+            </ul>
+            <hr style="width: 80%;margin: 20px auto">
+            <ul role="menubar">
+                <li class="menuitem-v blue"><a href={% url "accounts:register" %}><i class="ion-ios-person"></i>Register</a>
+                </li>
+                <li class="menuitem-v blue"><a href="#"><i class="ion-log-in blue"></i>Sign in</a></li>
+            </ul>
+        </div>
+    </div>
     <div id="main-desc" class="container medium-description waypoint">
         <img id="logo-img" class="left img" src={% static "images/ntech.png" %}/>
         <div id="main-desc-text" class="medium-description">
-            {% lorem 1 p %}
+            <p class="large-description container">Ntech Hackathon 2019</p>
+            <strong>N-Tech</strong> (<i>New Technologists & Innovators</i>) is a youth-led initiative that aims to
+            empower youth to drive technological advancements as the fourth Industrial Revolution unveils. Young
+            people today are going to be the leaders of tomorrow. But, is it not mismatching that one third of the,
+            rapidly accelerating, youth population in Africa is unemployed today?<br>
+            N-Tech hackathon is an annual event and we are currently seeking
+            Participants (undergraduate or graduate university students) and sponsors for this year's event. They will
+            team-up
+            depending on topics that they are mutually interested in, work together for 30 hours to develop a solution
+            to the prompt. Thereafter, submissions will be evaluated by a panel of judges and the selected finalists
+            will pitch their ideas to the organizations. Top teams will then be selected.
         </div>
     </div>
     <div class="container ruled waypoint" style="height: 40px; margin-top: 20px;padding-bottom: 20px">
         <a href={% url "accounts:register" %}>
             <button class="blue-btn center" style="width: 120px;">Register</button>
         </a>
+        <a href="#">
+            <button class="blue-btn center" style="width: 120px;">Read more</button>
+        </a>
     </div>
     <p class="large-description blue waypoint">Currently involving three countries</p>
+    <p class="container blockquote waypoint-side" style="max-width: 800px">
+        This year, 2019, it will concurrently be hosted in Kenya, Rwanda, and Uganda (we hope to expand in the future).
+        Each country will have a theme
+        that relates to some of the major issues but still contributes to our overall mission, empowering youth to
+        take the lead in the fourth industrial revolution.
+    </p>
     <div class="container">
         <img id="map-img" class="wide-img center waypoint" alt="countries-kenya-uganda-rwanda"
              src={% static "images/map.png" %}/>
