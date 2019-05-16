@@ -125,16 +125,19 @@ a {
 
 .waypoint, .waypoint-side {
     opacity: 0;
+    filter: alpha(opacity=0);
     position: relative;
 }
 
 @keyframes slideUp {
     from {
         opacity: 0;
+        filter: alpha(opacity=0);
         top: 350px;
     }
     to {
         opacity: 1;
+        filter: alpha(opacity=100);
         top: 0;
     }
 }
@@ -142,10 +145,12 @@ a {
 @keyframes slideRight {
     from {
         opacity: 0;
+        filter: alpha(opacity=0);
         left: -100px;
     }
     to {
         opacity: 1;
+        filter: alpha(opacity=100);
         left: 0;
     }
 }

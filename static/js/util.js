@@ -60,7 +60,7 @@ function hide_dropdown(dropdown) {
 function hide_all_dropdowns() {
     const dropdowns = $(".select");
     dropdowns.removeClass("select-visible");
-    dropdowns.find("i").removeClass("rotated");
+    dropdowns.parent().find(".select-val i").removeClass("rotated");
 }
 
 function toggle_dropdown() {

@@ -33,8 +33,6 @@
             </ul>
             <hr style="width: 80%;margin: 20px auto">
             <ul role="menubar">
-                <li class="menuitem-v blue"><a href={% url "accounts:register" %}><i class="ion-ios-person"></i>Register</a>
-                </li>
                 <li class="menuitem-v blue"><a href="#"><i class="ion-log-in blue"></i>Sign in</a></li>
             </ul>
         </div>
@@ -56,28 +54,31 @@
         <div class="container small-description blue waypoint">Contact information</div>
         <div class="input-layer waypoint-side">
             <span class="placeholder">Email</span>
-            <input id="email" type="text" name="email" class="data" title="email"/><br>
+            <input id="email" type="email" name="email" class="data" title="email"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
+            <p class="error" id="em-err"></p>
         </div>
         <div class="input-layer waypoint-side">
             <span class="placeholder">Confirm Email</span>
-            <input id="email2" type="text" name="email2" class="data" title="confirm email"/><br>
+            <input id="email2" type="email" name="email2" class="data" title="confirm email"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
+            <p class="error" id="em2-err"></p>
         </div>
         <div class="input-layer waypoint-side">
             <span class="placeholder">Full name</span>
             <input id="name" type="text" class="data" name="name" title="name"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
+            <p class="error" id="nm-err"></p>
         </div>
+        <p class="placeholder container waypoint-side">Mobile contact</p>
         <div class="container limit-width ruled">
-            <span class="placeholder" style="margin-bottom: 15px;height: 30px;">Mobile contact</span>
             <div class="input-layer select-layer" tabindex="0">
-                <input class="value-point" type="text" hidden/>
+                <input class="value-point" id="country_code" type="text" hidden/>
                 <div class="select-val">+<span>254</span> &nbsp;<i class="ion-chevron-down"></i></div>
-                <input class="block-input" placeholder="example 712345678" type="number">
+                <input class="block-input" placeholder="example 712345678" type="number" id="mobile">
                 <div class="select">
                     <span class="option">254</span>
                     <span class="option">250</span>
@@ -85,11 +86,13 @@
                 </div>
             </div>
         </div>
+        <p class="error limit-width" id="mb-err"></p>
         <div class="input-layer waypoint-side">
             <span class="placeholder">username</span>
             <input id="username" type="text" name="username" class="data" title="alias"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
+            <p class="error" id="un-err"></p>
         </div>
         <div class="container limit-width waypoint" style="display: block">
             <p class="container small-description">
@@ -107,18 +110,21 @@
             <div class="flash left"></div>
             <div class="flash right"></div>
             <div class="flash-inactive"></div>
+            <p class="error" id="pw-err"></p>
         </div>
         <div class="input-layer waypoint-side terminate">
             <span class="placeholder">Confirm Password</span>
             <input id="password2" type="password" class="data" name="password2" title=" confirm password"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
+            <p class="error" id="pw2-err"></p>
         </div>
         <p class=" container medium-description waypoint" style="color: #3d8aff">Classification information</p>
         <div class="container limit-width">
             <div class="input-layer select-layer" style="width: 100%" tabindex="0">
                 <input class="value-point" id="institution" name="institution" type="text" hidden/>
-                <div class="select-val"><span>Select Institution</span> &nbsp;<i class="ion-chevron-down"></i></div>
+                <div class="select-val" style="display: flex"><span>Select Institution</span> &nbsp;<i
+                        class="ion-chevron-down"></i></div>
                 <div class="select">
                     <span class="option">&nbsp;Select Institution</span>
                     {% for institution in institutions %}
@@ -127,6 +133,7 @@
                 </div>
             </div>
         </div>
+        <p class="error limit-width" id="it-err"></p>
         <p class="container limit-width waypoint small-description">
             If your institution is not available fill in the other section below
         </p>
@@ -136,27 +143,30 @@
             <div class="flash left"></div>
             <div class="flash right"></div>
             <div class="flash-inactive"></div>
+            <p class="error" id="ot-err"></p>
         </div>
         <div class="container limit-width" style="height: 60px">
-            <div class="input-layer select-layer" style="width:48%;margin-right:1%;margin-left: 1%" tabindex="0">
+            <div class="input-layer select-layer" tabindex="0">
                 <input class="value-point" type="text" hidden/>
                 <div class="select-val"><span>Gender</span> &nbsp;<i class="ion-chevron-down"></i></div>
                 <div class="select">
                     <span class="option">Male</span>
                     <span class="option">Female</span>
                 </div>
+                <p class="error" id="gn-err"></p>
             </div>
-            <div class="input-layer select-layer" style="width:48%;margin-right:1%;margin-left: 1%" tabindex="0">
+            <div class="input-layer select-layer" tabindex="0">
                 <input class="value-point" type="text" hidden/>
                 <div class="select-val"><span>Country</span> &nbsp;<i class="ion-chevron-down"></i></div>
                 <div class="select">
-                    <span class="option"><img class="flag-img" alt="ke"
-                                              src={% static "images/ke.png" %}>&nbsp;Kenya</span>
-                    <span class="option"><img class="flag-img" alt="ug"
-                                              src={% static "images/ug.png" %}>&nbsp;Uganda</span>
-                    <span class="option"><img class="flag-img" alt="rw"
-                                              src={% static "images/rw.png" %}>&nbsp;Rwanda</span>
+                    {% for country in countries %}
+                        <span class="option">
+                        <img class="flag-img" alt="{{ country.name }}" src="{{ country.flag_img }}">
+                        &nbsp;{{ country.name }}
+                    </span>
+                    {% endfor %}
                 </div>
+                <p class="error" id="ct-err"></p>
             </div>
         </div>
         <div class="container limit-width">
@@ -164,17 +174,18 @@
                 <span class="placeholder placeholder-hidden">Date of birth</span>
                 <input id="dob" type="date" class="data" name="dob" title="date of birth"/>
                 <br>
-                <div class="flash left"></div>
-                <div class="flash right"></div>
+                <div class="flash"></div>
                 <div class="flash-inactive"></div>
+                <p class="error" id="dob-err"></p>
             </div>
             <p class="small-description container" id="age-val" style="width: 40%;align-items: center">Age:&nbsp;
-                <span></span></p>
+                <span class="blue"></span></p>
         </div>
         <div class="container limit-width">
             <div class="input-layer select-layer" style="width: 100%" tabindex="0">
                 <input class="value-point" id="skill" name="skill" type="text" hidden/>
-                <div class="select-val"><span>Select skill</span> &nbsp;<i class="ion-chevron-down"></i></div>
+                <div class="select-val" style="display: flex"><span>Select skill</span> &nbsp;<i
+                        class="ion-chevron-down"></i></div>
                 <div class="select">
                     <span class="option">&nbsp;Select skill</span>
                     <span class="option">&nbsp;Coding</span>
@@ -183,6 +194,7 @@
                     <span class="option">&nbsp;Electronics</span>
                     <span class="option">&nbsp;Marketing</span>
                 </div>
+                <p class="error" id="sk-err"></p>
             </div>
         </div>
         <p class="container limit-width small-description waypoint">
@@ -192,8 +204,10 @@
 
         </div>
         <div class="container" style="margin:60px 0 60px 0">
-            <button class="blue-btn">Finish registration</button>
+            <button class="blue-btn" style="height: 35px">Finish registration</button>
         </div>
     </form>
+{% endblock %}
+{% block scripts %}
     <script src={% static "js/validators.js" %}></script>
 {% endblock %}

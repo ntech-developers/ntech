@@ -1,7 +1,9 @@
-from django.conf.urls import url
+from django.urls import path
 
 from . import views
 
+app_name = "info"
+
 urlpatterns = [
-    url(r'home', views.home, name="home"),
+    path('home', views.home, name="home"),
 ]

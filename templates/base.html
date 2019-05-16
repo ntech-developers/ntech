@@ -10,8 +10,6 @@
     <link rel="shortcut icon" type="image/png" href={% static "images/favicon.png" %}>
     <link rel="stylesheet" href={% static "css/base.css" %}/>
     <link rel="stylesheet" href={% static "css/ionicons.css" %}/>
-    <script type="text/javascript" src={% static "js/jquery-3.3.1.min.js" %}></script>
-    <script src={% static "js/util.js" %}></script>
 </head>
 <body>
 <div class="header ruled">
@@ -24,8 +22,11 @@
         {% comment "the main content of the extending template go here" %}{% endcomment %}
     {% endblock %}
 </div>
+<script type="text/javascript" src={% static "js/jquery-3.3.1.min.js" %}></script>
+<script type="text/javascript" src={% static "dajax/js/jquery.dajax.js" %}></script>
 <script src={% static "js/util.js" %}></script>
 <script src={% static "js/waypoints.js" %}></script>
+{% block scripts %}{% endblock %}
 <script>
     shadow_on_scroll(".header", ".content");
 </script>
