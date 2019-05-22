@@ -10,12 +10,14 @@ class InstitutionAdmin(ModelAdmin):
     form = InstitutionCreation
     add_form = InstitutionCreation
     table_name = 'institution'
-    list_display = ('name',)
+    list_display = ('id', 'name', 'country')
+    list_filter = ('country',)
     fieldsets = (
-        ("new {}".format(table_name), {'fields': ('name',)}),
+        ("new {}".format(table_name), {'fields': ('id', 'name', 'country')}),
     )
 
     search_fields = ('name',)
+    readonly_fields = ('id',)
     ordering = ('name',)
 
 
@@ -24,9 +26,9 @@ class CountryAdmin(ModelAdmin):
     form = CountryCreation
     add_form = CountryCreation
     table_name = 'Add country'
-    list_display = ('name', 'flag')
+    list_display = ('name', 'flag', 'code')
     fieldsets = (
-        ("new {}".format(table_name), {'fields': ('name', 'flag')}),
+        ("new {}".format(table_name), {'fields': ('name', 'flag', 'code')}),
         ('Flag', {'fields': ('flag_tag',)}),
     )
 
