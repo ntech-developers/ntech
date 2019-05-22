@@ -71,18 +71,28 @@ function toggle_dropdown() {
     $(this).find("i").toggleClass("rotated");
 }
 
-function activate_dropdowns() {
-    let dropdowns = $(".select-val");
-    dropdowns.on("click", toggle_dropdown);
-    $(".select-layer").on("blur", (function () {
-        hide_dropdown($(this).find(".select"))
-    }));
-    $(".select .option").click(function () {
-        $(this).parent().parent().find(".select-val span").text($(this).text());
-        // ".value-point" is the element in the custom select cluster that holds the select value
-        $(this).parent().parent().find(".value-point").val($(this).text());
-        $(this).parent().parent().find(".value-point").trigger("change");
-        hide_all_dropdowns();
+function activate_drop_downs() {
+    $(".select-layer").toArray().forEach(function (select) {
+        let value = $(`<div class="select-val"><span></span> &nbsp;<i class="ion-chevron-down"></i></div>`);
+        let options = $(`<div class='select'></div>`);
+        let input = $(select).find("select");
+        $(value).on("click", toggle_dropdown);
+        $(select).append(value, options);
+        value.find("span").text(input.get(0)[input.get(0).selectedIndex].innerHTML);
+        $(input).children().toArray().forEach(function (option) {
+            let opt = $(`<span class="option">${option.innerHTML}</span>`);
+            options.append(opt);
+            opt.click(function () {
+                $(input).val(option.value);
+                value.find("span").text(option.innerHTML);
+                input.val(option.value);
+                input.trigger("change");
+                hide_all_dropdowns();
+            });
+        });
+        $(select).on("blur", (function () {
+            hide_dropdown(options);
+        }));
     })
 }
 
@@ -93,7 +103,7 @@ $("#menu-btn").click(function () {
 });
 
 
-activate_dropdowns();
+activate_drop_downs();
 activate_inputs();
 
 function uniqueness(string) {
