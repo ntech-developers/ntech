@@ -15,7 +15,13 @@
         </ul>
     </div>
     <div id="menu-actions" class="menubar force-right">
+        {% if user.is_authenticated %}
+            <a class="medium-description blue"><i class="ion-ios-person"></i>&nbsp;{{ user.username }}</a>
+            &nbsp;<a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
+                class="ion-log-out"></i></a>
+        {% else %}
         <a class="medium-description blue"><i class="ion-ios-person"></i>&nbsp;Sign in</a>
+        {% endif %}
     </div>
     <p id="menu-btn" class="menubar force-right" style="padding: 0 10px 0 10px"><i
             class="ion-android-menu medium-description" style="font-size: 1.5em"></i></p>
