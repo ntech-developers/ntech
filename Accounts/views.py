@@ -1,26 +1,51 @@
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from Info.models import Institution, Country
-from .models import Participant
-
-
-def registration_form(req):
-    return render(req, "registration.html", {"institutions": Institution.objects.all(),
-                                             "countries": Country.objects.all()})
+from .forms import SignUpForm
 
 
-def verify_username(req):
+def registration_form(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.refresh_from_db()  # hard refresh load the profile instance created by the signal
+            user.profile.language = form.cleaned_data.get('language')
+            user.profile.mobile = form.cleaned_data.get('mobile')
+            user.profile.skills = form.cleaned_data.get('skills')
+            user.profile.institution = form.cleaned_data.get('institution')
+            user.profile.gender = form.cleaned_data.get('gender')
+            user.profile.country = form.cleaned_data.get('country')
+            user.profile.date_of_birth = form.cleaned_data.get('date_of_birth')
+            user.save()
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=user.username, password=raw_password)
+            login(request, user)
+            return redirect('info:home')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration.html', {'form': form})
+
+
+def verify_username(request):
     #  Checks whether a username is taken
     #  returns a json response for use with ajax requests
     #  the username is passed through GET
-    username = req.GET.get("username", "")
-    return JsonResponse({"exists": Participant.objects.filter(username=username).exists()})
+    username = request.GET.get("username", "")
+    return JsonResponse({"exists": User.objects.filter(username=username).exists()})
 
 
-def verify_email(req):
+def verify_email(request):
     #  Checks whether a email is taken
     #  returns a json response for use with ajax requests
     #  the email is passed through GET
-    email = req.GET.get("email", "")
-    return JsonResponse({"exists": Participant.objects.filter(email=email).exists()})
+    email = request.GET.get("email", "")
+    return JsonResponse({"exists": User.objects.filter(email=email).exists()})
+
+
+def log_out(request):
+    if request.user.is_authenticated:
+        logout(request)
+    return redirect("info:home")
