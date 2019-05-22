@@ -1,101 +1,39 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.db import models as md
-from django.utils.html import mark_safe
+from django.contrib.auth.models import User
+from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 from Info.models import Institution, Country
 
 
-class ParticipantManager(BaseUserManager):
+class Profile(models.Model):
+    GENDER = (
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+    )
 
-    def create_user(self, identification, name, email, mobile, department, password=None):
-        if not identification:
-            raise ValueError("Participant must have a identification.")
-
-        user = self.model(
-            identification=identification,
-            name=name,
-            email=email,
-            mobile=mobile,
-            department=department
-        )
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
-
-    def create_superuser(self, identification, name, email, mobile, institution, password=None):
-        if not identification:
-            raise ValueError("User must have a national id.")
-
-        user = self.model(
-            identification=identification,
-            name=name,
-            email=email,
-            mobile=mobile,
-            institution=institution
-        )
-        user.set_password(password)
-        user.is_admin = True
-        user.save(using=self._db)
-        return user
-
-
-class Participant(AbstractBaseUser):
-    identification = md.CharField(max_length=255, unique=True)
-    name = md.CharField(max_length=255)
-    username = md.CharField(max_length=100)
-    email = md.EmailField()
-    mobile = md.IntegerField()
-    institution = md.ForeignKey(Institution, null=True, on_delete=md.SET_NULL)
-    date_of_birth = md.DateField()
-    gender = md.IntegerField(default=0, choices=((0, "Male"), (1, "Female")))
-    country = md.ForeignKey(Country, on_delete=md.CASCADE)
-    skills = md.TextField()
-    avatar = md.ImageField(upload_to='avatars', blank=True)
-    thumbnail = md.ImageField(upload_to='thumbnails', blank=True)
-
-    USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["email", "id"]
-
-    objects = ParticipantManager()
-
-    is_active = True
-    is_admin = False
-
-    def natural_key(self):
-        return self.national_id
-
-    def has_perm(self, perm, obj=None):
-        return False
-
-    def set_staff_type(self, val):
-        self.staff_type = 1 if val == "lecturer" else 2
-
-    def get_staff_type(self):
-        return "lecturer" if self.staff_type == 1 else "timetable"
-
-    def has_module_perms(self, app_label):
-        return False
-
-    def get_full_name(self):
-        return self.name
-
-    def get_short_name(self):
-        return self.national_id
-
-    @property
-    def thumb(self):
-        return self.thumbnail.url if self.thumbnail else "/static/general/images/placeholder.png"
-
-    @property
-    def avt(self):
-        # avatar
-        return self.avatar.url if self.avatar else "/static/SchoolInfo/images/img.png"
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    mobile = models.CharField(max_length=50, null=True)
+    gender = models.CharField(max_length=20, choices=GENDER, null=True)
+    date_of_birth = models.DateField(null=True)
+    assessor = models.BooleanField(default=False)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True)
+    institution = models.ForeignKey(Institution, null=True, on_delete=models.SET_NULL)
+    skills = models.TextField(null=True)
 
     def __str__(self):
-        return self.name
+        return self.user.username
 
-    def avatar_tag(self):
-        return mark_safe('<img src="{}" alt="avatar" width="180" height="180"/>'.format(self.avt))
+    def compress_mobile(self, code, number):
+        return int(str(code) + str(number))
 
     class Meta:
-        db_table = "participant"
+        db_table = "profile"
+
+
+# Hooking the following methods to the Django defined User model
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+    instance.profile.save()
