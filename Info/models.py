@@ -2,19 +2,10 @@ from django.db import models as md
 from django.utils.html import mark_safe
 
 
-class Institution(md.Model):
-    name = md.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = "institution"
-
-
 class Country(md.Model):
     name = md.CharField(max_length=255)
     flag = md.ImageField(upload_to='flags', blank=True)
+    code = md.IntegerField()
 
     def __str__(self):
         return self.name
@@ -29,3 +20,14 @@ class Country(md.Model):
 
     class Meta:
         db_table = "country"
+
+
+class Institution(md.Model):
+    name = md.CharField(max_length=255)
+    country = md.ForeignKey(Country, on_delete=md.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = "institution"
