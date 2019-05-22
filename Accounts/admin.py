@@ -1,28 +1,23 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
+from django.contrib.admin import ModelAdmin
 
-from .forms import ParticipantChangeForm, ParticipantCreationForm
-from .models import Participant
+from .forms import ProfileUpdateForm
+from .models import Profile
 
 
-class ParticipantAdmin(UserAdmin):
-    form = ParticipantChangeForm
-    add_form = ParticipantCreationForm
-    table_name = 'Participant registration'
-    list_display = ('identification', 'name', 'username', 'email', 'mobile', 'institution', 'country', 'gender')
+class ProfileAdmin(ModelAdmin):
+    form = ProfileUpdateForm
+    table_name = 'Profile update'
+    list_display = ('institution', 'date_of_birth', 'gender', 'country', 'mobile')
     list_filter = ('country', 'institution', 'gender')
     fieldsets = (
-        ("new {}".format(table_name),
-         {'fields': ('identification', 'name', 'email', 'username', 'mobile', 'institution', 'country', 'password',
-                     'gender')}),
-        ('Avatar', {'fields': ('avatar_tag',)}),
+        (table_name,
+         {'fields': ('institution', 'skills', 'date_of_birth', 'gender', 'country', 'mobile')}),
     )
-    add_fieldsets = ((None, {'fields': ('password1', 'password2', 'identification', 'name', 'email', 'mobile', 'gender',
-                                        'institution', 'country', 'password', 'last_login'), 'classes': ('wide',)}),)
-    search_fields = ('name', 'email', 'username')
-    ordering = ('name',)
-    readonly_fields = ('last_login', 'avatar_tag')
+    search_fields = ('institution',)
+    ordering = ('institution',)
+    readonly_fields = ()
     filter_horizontal = ()
 
 
-admin.site.register(Participant, ParticipantAdmin)
+admin.site.register(Profile, ProfileAdmin)
