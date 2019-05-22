@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 
-def home(req):
-    return render(req, "home.html")
+def home(request):
+    return render(request, "home.html", {"user": request.user})
