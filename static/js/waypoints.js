@@ -40,6 +40,17 @@ $(".waypoint").toArray().forEach(function (child) {
     });
 });
 
+$(".waypoint-grow").toArray().forEach(function (child) {
+    wayPtMgr.add({
+        elem: $(child).get(0),
+        offset: 200,
+        handler: function (element) {
+            $(element).removeClass("grow");
+            $(element).addClass("grow");
+        }
+    });
+});
+
 let total_delay = 0;
 
 $(".waypoint-side").toArray().forEach(function (child) {
