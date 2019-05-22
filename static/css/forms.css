@@ -9,7 +9,7 @@
 .error {
     height: 15px;
     color: crimson;
-    font-family: Courier, sans-serif;
+    font-family: calibri, sans-serif;
     font-size: 12px;
     padding: 2px;
     margin: 3px 0 0;
@@ -28,13 +28,13 @@
 
 .flash-active {
     width: 100%;
-    background: #3d8aff;
+    background: var(--lively-text-color);
     z-index: 10;
 }
 
 .placeholder {
     background: transparent;
-    z-index: 20;
+    z-index: 15;
     display: block;
     font-family: Calibri, sans-serif;
     font-size: 100%;
@@ -43,14 +43,14 @@
     height: 29px;
     width: 100%;
     pointer-events: none;
-    color: #5a5a5a;
+    color: var(--universal-text-color);
     transition: all 0.5s cubic-bezier(.08, .7, 0, 1.03);
 
 }
 
 .placeholder-raised {
     top: -18px;
-    color: #3d8aff !important;
+    color: var(--lively-text-color) !important;
     font-size: 80%;
 }
 
@@ -81,16 +81,16 @@ input {
 
 .select {
     width: auto;
-    color: #3d8aff;
+    color: var(--lively-text-color);
     font-family: Calibri, sans-serif;
     font-size: 100%;
     list-style: none;
     transition: all 0.3s ease-in;
     transform: scale(0);
-    display: block;
     max-height: 180px;
     height: auto;
     position: absolute;
+    top: 41px;
     box-shadow: 0 0 2px 1px #b1b1b1;
     border-radius: 0 0 10px 10px;
     overflow-y: auto;
@@ -106,19 +106,20 @@ input {
 
 .select .option {
     height: 30px;
-    display: inline-block;
+    display: inline-flex;
     width: 100%;
     padding-left: 20px;
     cursor: pointer;
+    align-items: center;
 }
 
 .select .option:hover {
-    color: #5a5a5a;
+    color: var(--universal-text-color);
     background: #ccd8ff;
 }
 
 .select-val, .block-input {
-    width: auto !important;
+    width: 100% !important;
     background: rgba(240, 240, 240, 0.5);
     height: 40px;
     padding: 0 20px 0 20px;
@@ -142,6 +143,11 @@ input {
     width: fit-content;
     overflow: visible;
     margin: 15px auto;
+    display: flex;
+}
+
+.select-layer select {
+    display: none;
 }
 
 .rotated {
@@ -175,7 +181,7 @@ input {
 #strength div {
     height: 100%;
     width: 0;
-    background: #3d8aff;
+    background: var(--lively-text-color);
     transition: inherit;
 }
 
@@ -185,6 +191,36 @@ input {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+@keyframes pulsate {
+    0% {
+        width: 100%;
+    }
+    50% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@-moz-keyframes pulsate {
+    0% {
+        width: 100%;
+    }
+    50% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.load-mode .flash {
+    background: var(--lively-text-color);
+    -moz-animation: pulsate 1s infinite;
+    animation: pulsate 1s infinite;
 }
 
 .placeholder-hidden {
