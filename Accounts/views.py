@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -46,6 +47,29 @@ def verify_email(request):
 
 
 def log_out(request):
+    previous = request.META.get("HTTP_REFERER")
     if request.user.is_authenticated:
         logout(request)
-    return redirect("info:home")
+    if previous:
+        return redirect(previous)
+    else:
+        return redirect("info:home")
+
+
+def pre_authenticate(request):
+    username = request.POST.get("username", "")
+    password = request.POST.get("password", "")
+    user = User.objects.filter(username=username)
+    if user.exists():
+        user = authenticate(username=username, password=password)
+        if user:
+            return JsonResponse({"status": 0})  # Authentication successful
+        else:
+            return JsonResponse({"status": 1})  # Password incorrect
+    else:
+        return JsonResponse({"status": 2})  # Username not found
+
+
+@login_required
+def profile(request):
+    return render(request, "profile.html", {"user": request.user})
