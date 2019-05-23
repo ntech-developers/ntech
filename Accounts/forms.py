@@ -24,6 +24,7 @@ class SignUpForm(UserCreationForm):
 
     mobile = forms.CharField(max_length=50)
     date_of_birth = forms.DateField()
+    skills = forms.TextInput()
 
     class Meta:
         model = User
@@ -55,7 +56,7 @@ class SignUpForm(UserCreationForm):
 
     def clean_mobile(self):
         #  Merge country code with the mobile number
-        return int(str(self.cleaned_data.get('mobile')) + str(self.post_data.get("code", 254)))
+        return int(str(self.post_data.get("code", 254)) + str(self.cleaned_data.get('mobile')))
 
 
 class ProfileUpdateForm(forms.ModelForm):
