@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+    {% comment "additional stylesheets for this template go here" %}{% endcomment %}
+    <link rel="stylesheet" href={% static "css/home.css" %}>
+{% endblock %}
+{% block header %}
+    <div class="menubar">
+        <p class="logo-text menubar left"><img alt="ntech-logo" src={% static "images/favicon.png" %}>tech</p>
+        <ul id="menubar" class="menubar left" role="menubar">
+            <li class="menuitem"><a href="#">Home</a></li>
+            <li class="menuitem"><a href="#">Schedule</a></li>
+            <li class="menuitem"><a href="#">FAQ</a></li>
+            <li class="menuitem"><a href="#">About</a></li>
+        </ul>
+    </div>
+    <div id="menu-actions" class="menubar force-right">
+        {% if user.is_authenticated %}
+            <a class="medium-description blue"><i class="ion-ios-person"></i>&nbsp;{{ user.username }}</a>
+            &nbsp;<a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
+                class="ion-log-out"></i></a>
+        {% else %}
+            <a class="medium-description blue" href={% url "accounts:login" %}><i class="ion-ios-person"></i>&nbsp;Sign
+                in</a>
+        {% endif %}
+    </div>
+    <p id="menu-btn" class="menubar force-right" style="padding: 0 10px 0 10px"><i
+            class="ion-android-menu medium-description" style="font-size: 1.5em"></i></p>
+{% endblock %}
+{% block content %}
+    <div class="overlay hidden">
+        <!--For responsive menu. Ensure it is present for pages with the responsive menu-->
+        <div id="menu-list" class="ruled">
+            <ul role="menubar">
+                <li class="menuitem-v"><a href={% url "info:home" %}><i class="ion-ios-home"></i>Home</a></li>
+                <li class="menuitem-v"><a href="#"><i class="ion-ios-stopwatch blue"></i>Schedule</a></li>
+                <li class="menuitem-v"><a href="#"><i class="ion-help-circled blue"></i>FAQ</a></li>
+                <li class="menuitem-v"><a href="#"><img width="20px" height="20px" alt="ntect-logo"
+                                                        src={% static "images/favicon.png" %}>&nbsp;About</a></li>
+            </ul>
+            <hr style="width: 80%;margin: 20px auto">
+            <ul role="menubar">
+                <li class="menuitem-v blue"><a href={% url "accounts:register" %}><i class="ion-ios-person"></i>Register</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="menuitem-v blue"><a href={% url "accounts:logout" %}><i class="ion-log-out"></i>&nbsp;Sign
+                        out</a></li>
+                {% else %}
+                    <li class="menuitem-v blue"><a href={% url "accounts:login" %}><i class="ion-log-in blue"></i>Sign
+                        in</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="large-description blue container waypoint-grow">
+        <i class="ion-hammer blue" style="font-size: 5em"></i>
+    </div>
+    <p class="large-description container waypoint">OOPS! Persons at work!</p>
+    <p class="container medium-description waypoint" style="display: block;text-align: center">
+        This page is still under construction. Please visit our <a class="blue" href={% url "info:home" %}>homepage</a>
+        instead
+    </p>
+{% endblock %}

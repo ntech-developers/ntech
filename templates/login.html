@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+    {% comment "additional stylesheets for this template go here" %}{% endcomment %}
+    <link rel="stylesheet" href={% static "css/forms.css" %}>
+{% endblock %}
+{% block header %}
+    <div class="menubar">
+        <p class="logo-text menubar left"><img alt="ntech-logo" src={% static "images/favicon.png" %}>tech</p>
+        <ul id="menubar" class="menubar left" role="menubar">
+            <li class="menuitem"><a href={% url "info:home" %}>Home</a></li>
+            <li class="menuitem"><a href="#">Schedule</a></li>
+            <li class="menuitem"><a href="#">FAQ</a></li>
+            <li class="menuitem"><a href="#">About</a></li>
+        </ul>
+    </div>
+    <div id="menu-actions" class="menubar force-right">
+        {% if user.is_authenticated %}
+            <a class="medium-description blue"><i class="ion-ios-person"></i>&nbsp;{{ user.username }}</a>&nbsp;
+            <a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
+                    class="ion-log-out"></i></a>
+        {% endif %}
+    </div>
+    <p id="menu-btn" class="menubar force-right" style="padding: 0 10px 0 10px"><i
+            class="ion-android-menu medium-description" style="font-size: 1.5em"></i></p>
+
+{% endblock %}
+{% block content %}
+    <div class="overlay hidden">
+        <!--For responsive menu. Ensure it is present for pages with the responsive menu-->
+        <div id="menu-list" class="ruled">
+            <ul role="menubar">
+                <li class="menuitem-v"><a href={% url "info:home" %}><i class="ion-ios-home"></i>Home</a></li>
+                <li class="menuitem-v"><a href="#"><i class="ion-ios-stopwatch blue"></i>Schedule</a></li>
+                <li class="menuitem-v"><a href="#"><i class="ion-help-circled blue"></i>FAQ</a></li>
+                <li class="menuitem-v"><a href="#"><img width="20px" height="20px" alt="ntect-logo"
+                                                        src={% static "images/favicon.png" %}>&nbsp;About</a></li>
+            </ul>
+            <hr style="width: 80%;margin: 20px auto">
+            <ul role="menubar">
+                <li class="menuitem-v blue"><a href={% url "accounts:register" %}><i class="ion-ios-person"></i>Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form method="post" autocomplete="off">
+        <img alt="ntech" class="sign-in-logo waypoint" src={% static "images/ntech.png" %}>
+        <p class=" container medium-description waypoint blue">Access Your Account</p>
+        {% csrf_token %}
+        <div class="input-layer waypoint-side">
+            <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;Username</span>
+            <input id="id_username" type="text" name="username" class="data">
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+            <p class="error" id="lun-err"></p>
+        </div>
+        <div class="input-layer waypoint-side">
+            <span class="placeholder"><i class="ion-ios-locked"></i>&nbsp;&nbsp;Password</span>
+            <input id="id_password" type="password" name="password" class="data">
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+            <p class="error" id="lpw-err"></p>
+        </div>
+
+        <p class="container small-description waypoint limit-width" style="display: block">
+            You do not have an account?&nbsp;<a class="blue" href={% url "accounts:register" %}>Sign up</a>
+            &nbsp;today to be a part of us.
+        </p>
+
+        <div class="container" style="margin:60px 0 60px 0">
+            <input id="sign_in" type="submit" hidden>
+            <input type="button" class="blue-btn" value="Sign in" id="pre-submit">
+        </div>
+    </form>
+{% endblock %}
+{% block scripts %}
+    <script src={% static "js/validators.js" %}></script>
+{% endblock %}
