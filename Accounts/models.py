@@ -31,6 +31,25 @@ class Profile(models.Model):
         db_table = "profile"
 
 
+class Project(models.Model):
+    name = models.CharField(max_length=255)
+    github_link = models.URLField(blank=True)
+    youtube_link = models.URLField(blank=True)
+    points_awarded = models.PositiveIntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    assessor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
+    class Meta:
+        ordering = ('name',)
+        db_table = "project"
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        return self.name
+
+
 # Hooking the following methods to the Django defined User model
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
