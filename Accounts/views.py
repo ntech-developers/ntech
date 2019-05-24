@@ -25,6 +25,7 @@ def registration_form(request):
             user = authenticate(username=user.username, password=raw_password)
             login(request, user)
             return redirect('info:home')
+        print(form.errors)
     else:
         form = SignUpForm()
     return render(request, 'registration.html', {'form': form})

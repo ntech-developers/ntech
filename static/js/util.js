@@ -76,6 +76,7 @@ function activate_drop_downs() {
         let value = $(`<div class="select-val"><span></span> &nbsp;<i class="ion-chevron-down"></i></div>`);
         let options = $(`<div class='select'></div>`);
         let input = $(select).find("select");
+        input.trigger("change");
         $(value).on("click", toggle_dropdown);
         $(select).append(value, options);
         value.find("span").text(input.get(0)[input.get(0).selectedIndex].innerHTML);
@@ -85,7 +86,6 @@ function activate_drop_downs() {
             opt.click(function () {
                 $(input).val(option.value);
                 value.find("span").text(option.innerHTML);
-                input.val(option.value);
                 input.trigger("change");
                 hide_all_dropdowns();
             });

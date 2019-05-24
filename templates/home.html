@@ -16,8 +16,9 @@
     </div>
     <div id="menu-actions" class="menubar force-right">
         {% if user.is_authenticated %}
-            <a class="medium-description blue"><i class="ion-ios-person"></i>&nbsp;{{ user.username }}</a>
-            &nbsp;<a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
+            <a class="medium-description blue" href={% url "accounts:profile" %}><i
+                    class="ion-ios-person"></i>&nbsp;{{ user.username }}</a>&nbsp;
+            <a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
                 class="ion-log-out"></i></a>
         {% else %}
             <a class="medium-description blue" href={% url "accounts:login" %}><i class="ion-ios-person"></i>&nbsp;Sign

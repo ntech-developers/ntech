@@ -37,7 +37,6 @@ class Project(models.Model):
     youtube_link = models.URLField(blank=True)
     points_awarded = models.PositiveIntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    assessor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         ordering = ('name',)

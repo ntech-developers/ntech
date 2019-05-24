@@ -124,7 +124,7 @@ a {
 .round-btn {
     height: 25px;
     width: 25px;
-    font-size: 25px;
+    font-size: 24px;
     text-align: center;
     padding: 5px;
     border-radius: 18px;
@@ -337,6 +337,7 @@ a, a:visited {
     padding: 5px;
     cursor: pointer;
     min-width: 100px;
+    font-family: Calibri, sans-serif;
 }
 
 .menuitem-v:hover {

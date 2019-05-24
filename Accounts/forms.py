@@ -4,6 +4,20 @@ from django.contrib.auth.models import User
 
 from Info.models import Institution, Country
 from .models import Profile
+from .utilities import ObjectMatcher
+
+
+class InstitutionResolutionField(forms.ModelChoiceField):
+
+    def validate(self, value):
+        return self.to_python(value)
+
+    def to_python(self, value):
+        if str(value).isdigit():
+            inst = Institution.objects.filter(id=int(value))
+            if inst.exists():
+                return inst[0]
+        return None
 
 
 class SignUpForm(UserCreationForm):
@@ -11,16 +25,15 @@ class SignUpForm(UserCreationForm):
         ('Male', 'Male'),
         ('Female', 'Female'),
     )
+    country = forms.ModelChoiceField(queryset=Country.objects)
 
-    institution = forms.ModelChoiceField(queryset=Institution.objects)
+    institution = InstitutionResolutionField(queryset=Institution.objects)
 
     gender = forms.ChoiceField(choices=GENDER,
                                label="",
                                initial='',
                                widget=forms.Select(),
                                required=True)
-
-    country = forms.ModelChoiceField(queryset=Country.objects)
 
     mobile = forms.CharField(max_length=50)
     date_of_birth = forms.DateField()
@@ -29,14 +42,9 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = (
-            'username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'institution', 'mobile',
-            'gender', 'country', 'date_of_birth')
-        help_texts = {
-            'username': None,
-            'email': None,
-            'password1': None,
-            'password2': None,
-        }
+            'username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'country', 'institution',
+            'mobile',
+            'gender', 'date_of_birth')
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
@@ -45,14 +53,30 @@ class SignUpForm(UserCreationForm):
         else:
             self.post_data = {}
 
-        for field_name in ('username', 'password1', 'password2'):
-            self.fields[field_name].help_text = None
-
     def countries(self):
         return self.fields["country"].queryset
 
     def institutions(self):
         return self.fields["institution"].queryset
+
+    def clean_institution(self):
+        match_criteria = {
+            "ignore": ["university", "college", "institute", "technology", "science", "agriculture"],
+            "strict": False,
+            "fields": ["name"],
+            "match_ratio": 0.75,
+            "sample": self.post_data.get("new_institution")
+        }
+        print(self.post_data)
+        if not self.cleaned_data.get("institution"):
+            institution = ObjectMatcher(Institution.objects.all(), **match_criteria).get_match()
+            if not institution:
+                institution = Institution()
+                institution.name = match_criteria.get("sample")
+                institution.country = self.cleaned_data.get("country")
+                institution.save()
+            return institution
+        return self.cleaned_data.get("institution")
 
     def clean_mobile(self):
         #  Merge country code with the mobile number

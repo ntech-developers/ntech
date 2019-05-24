@@ -8,15 +8,15 @@ from .models import Profile
 class ProfileAdmin(ModelAdmin):
     form = ProfileUpdateForm
     table_name = 'Profile update'
-    list_display = ('institution', 'date_of_birth', 'gender', 'country', 'mobile')
+    list_display = ('user', 'institution', 'date_of_birth', 'gender', 'country', 'mobile')
     list_filter = ('country', 'institution', 'gender')
     fieldsets = (
         (table_name,
-         {'fields': ('institution', 'skills', 'date_of_birth', 'gender', 'country', 'mobile')}),
+         {'fields': ('user', 'institution', 'skills', 'date_of_birth', 'gender', 'country', 'mobile')}),
     )
     search_fields = ('institution',)
     ordering = ('institution',)
-    readonly_fields = ()
+    readonly_fields = ('user',)
     filter_horizontal = ()
 
 

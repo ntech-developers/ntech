@@ -16,8 +16,9 @@
     </div>
     <div id="menu-actions" class="menubar force-right">
         {% if user.is_authenticated %}
-            <a class="medium-description blue"><i class="ion-ios-person"></i>&nbsp;{{ user.username }}</a>
-            &nbsp;<a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
+            <a class="medium-description blue" href={% url "accounts:profile" %}><i
+                    class="ion-ios-person"></i>&nbsp;{{ user.username }}</a>&nbsp;
+            <a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
                 class="ion-log-out"></i></a>
         {% else %}
             <a class="medium-description blue" href={% url "accounts:login" %}><i class="ion-ios-person"></i>&nbsp;Sign
@@ -69,35 +70,35 @@
         {% csrf_token %}
         <div class="container small-description blue waypoint">Contact information</div>
         <div class="input-layer waypoint-side">
-            <span class="placeholder">Username</span>
+            <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;Username</span>
             <input id="username" type="text" name="username" class="data" title="alias"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="un-err"></p>
         </div>
         <div class="input-layer waypoint-side">
-            <span class="placeholder">First name</span>
+            <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;First name</span>
             <input id="first_name" type="text" name="first_name" class="data" title="First name"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="fn-err"></p>
         </div>
         <div class="input-layer waypoint-side">
-            <span class="placeholder">Last name</span>
+            <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;Last name</span>
             <input id="last_name" type="text" name="last_name" class="data" title="Last name"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="ln-err"></p>
         </div>
         <div class="input-layer waypoint-side">
-            <span class="placeholder">Email</span>
+            <span class="placeholder"><i class="ion-android-mail"></i>&nbsp;&nbsp;Email</span>
             <input id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" class="data"
                    title="email"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="em-err"></p>
         </div>
-        <p class="placeholder container waypoint-side">Mobile contact</p>
+        <p class="placeholder container waypoint-side"><i class="ion-android-call"></i>&nbsp;&nbsp;Mobile contact</p>
         <div class="container limit-width ruled">
             <div class="input-layer select-layer" tabindex="0" style="width: 25%!important;">
                 <select class="value-point" id="country_code" name="code" type="text">
@@ -125,7 +126,7 @@
             <span id="strength-val" class="small-description">0 %</span>
         </div>
         <div class="input-layer waypoint-side">
-            <span class="placeholder">Password</span>
+            <span class="placeholder"><i class="ion-ios-locked"></i>&nbsp;&nbsp;Password</span>
             <input id="password" type="password" class="data" name="password1" title="password"/><br>
             <div class="flash left"></div>
             <div class="flash right"></div>
@@ -133,7 +134,7 @@
             <p class="error" id="pw-err"></p>
         </div>
         <div class="input-layer waypoint-side terminate">
-            <span class="placeholder">Confirm Password</span>
+            <span class="placeholder"><i class="ion-ios-locked"></i>&nbsp;&nbsp;Confirm password</span>
             <input id="password2" type="password" class="data" name="password2" title=" confirm password"/><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
@@ -176,7 +177,7 @@
         </p>
         <div class="input-layer waypoint-side">
             <span class="placeholder">Other</span>
-            <input id="new_institution" type="text" class="data" name="institution"/><br>
+            <input id="new_institution" type="text" class="data" name="new_institution"/><br>
             <div class="flash left"></div>
             <div class="flash right"></div>
             <div class="flash-inactive"></div>
@@ -184,7 +185,8 @@
         </div>
         <div class="container limit-width">
             <div class="input-layer waypoint-side" style="width: 60%">
-                <span class="placeholder placeholder-hidden">Date of birth</span>
+                <span class="placeholder placeholder-hidden"><i
+                        class="ion-calendar"></i>&nbsp;&nbsp;Date of birth</span>
                 <input id="date_of_birth" type="date" class="data" name="date_of_birth" title="date of birth"/>
                 <br>
                 <div class="flash"></div>

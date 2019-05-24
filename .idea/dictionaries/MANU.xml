@@ -2,8 +2,10 @@
   <dictionary name="MANU">
     <words>
       <w>commentor</w>
+      <w>csrfmiddlewaretoken</w>
       <w>dajax</w>
       <w>ntech</w>
+      <w>preauth</w>
     </words>
   </dictionary>
 </component>

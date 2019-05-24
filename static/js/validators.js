@@ -7,19 +7,18 @@
 //dependencies : jquery, jquery-dajax, util.js
 
 const CheckList = {
-    identification: false,
     email: false,
-    email2: false,
-    name: false,
+    first_name: false,
+    last_name: false,
     mobile: false,
     username: false,
     password1: false,
     password2: false,
-    gender: false,
-    country: false,
+    gender: true,
+    country: true,
     institution: false,
     new_institution: false,
-    dob: false,
+    date_of_birth: false,
 };
 
 function calculate_strength() {
@@ -33,11 +32,11 @@ password_input.keyup(calculate_strength);
 password_input.change(calculate_strength);
 
 $("#institution").change(function () {
-    if ($(this).val().trim().toLowerCase() !== "select institution") {
+    if ($(this).val() === "") {
         $("#ot-err").text("");
-        $("#new_institution").prop("disabled", true);
-    } else {
         $("#new_institution").prop("disabled", false);
+    } else {
+        $("#new_institution").prop("disabled", true);
     }
 });
 
@@ -239,3 +238,39 @@ field_is_required($("#last_name"), $("#ln-err"));
 field_is_required($("#gender"), $("#gn-err"));
 field_is_required($("#country"), $("#ct-err"));
 field_is_required($("#email"), $("#em-err"));
+
+// =================================== login validators ==================================
+
+const csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+
+function pre_authenticate() {
+    if (!$("#id_password").val() || !$("#id_username").val()) return;
+    $("#id_password").parent().addClass("load-mode"); // start loader
+    $(".error").text(""); // Clear existing errors
+    $.ajax({
+        type: "POST",
+        url: "preauth",
+        data: {"username": $("#id_username").val(), "password": $("#id_password").val(), "csrfmiddlewaretoken": csrf},
+        success: function (response) {
+            switch (response.status) {
+                case 0:
+                    $("#sign_in").trigger("click");
+                    break;
+                case 1:
+                    $("#lpw-err").text("The password entered is incorrect");
+                    break;
+                case 2:
+                    $("#lun-err").text("This username does not exists");
+            }
+            $("#id_password").parent().removeClass("load-mode"); // quit loader
+        },
+        error: function () {
+            $("#lpw-err").text("Failed to authenticate. Check your connection.");
+            $("#id_password").parent().removeClass("load-mode");
+        }
+    })
+}
+
+field_is_required($("#id_username"), $("#lun-err"));
+field_is_required($("#id_password"), $("#lpw-err"));
+$("#pre-submit").click(pre_authenticate);

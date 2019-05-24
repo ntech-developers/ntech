@@ -6,6 +6,34 @@
     height: 45px;
 }
 
+.sign-in-logo {
+    display: block;
+    margin: 0 auto;
+    width: 180px;
+    height: 150px;
+}
+
+.errorlist {
+    list-style: none;
+    font-family: Calibri, sans-serif;
+    color: crimson;
+    display: flex;
+    width: 96%;
+    padding: 2% 2% 2% 0;
+    margin: 0 auto;
+}
+
+.errorlist li {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.height-auto {
+    height: auto !important;
+}
+
 .error {
     height: 15px;
     color: crimson;
