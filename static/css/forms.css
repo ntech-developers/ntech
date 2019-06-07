@@ -221,6 +221,19 @@ input {
     justify-content: center;
 }
 
+.floating-form {
+    width: 98%;
+    height: 93%;
+    margin: 1% auto;
+    padding: 1%;
+    background: var(--bright-text-color);
+    box-shadow: 0 0 5px 3px var(--universal-text-color);
+    background: url("../images/topleftintersect.png") no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    overflow-y: auto;
+}
+
 @keyframes pulsate {
     0% {
         width: 100%;
@@ -254,4 +267,14 @@ input {
 .placeholder-hidden {
     top: -18px;
     font-size: 80%;
+}
+
+
+@media screen and (max-width: 600px) {
+    .floating-form {
+        height: 100%;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
 }
