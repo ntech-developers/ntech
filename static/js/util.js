@@ -42,7 +42,7 @@ function activate_inputs() {
 function recheck_inputs() {
     $(".data").toArray().forEach((input) => {
         if ($(input).val() !== '' && $(input).val() !== null)
-            $(input).parent().find('.placeholder').addClass('placeholder-raised');
+            $(input).trigger('change');
     })
 }
 
@@ -99,7 +99,8 @@ function activate_drop_downs() {
 $("#menu-btn").click(function () {
     $(this).find("i").toggleClass("ion-android-menu");
     $(this).find("i").toggleClass("ion-android-close");
-    $(".overlay").toggleClass("hidden");
+    $(".overlay").toggleClass("invisible");
+    $("#menu-list").toggleClass("hidden");
 });
 
 
@@ -132,4 +133,25 @@ function password_strength(password_str) {
     strength += Math.round(40 * password_str.substring(0, 10).length / 10);
     strength += Math.round(30 * uniqueness(password_str));
     return strength;
+}
+
+function NoteBook(tab_structure) {
+    this.structure = $(tab_structure);
+    this.selected = null;
+    this.slipper = $(`<div class="slipper"></div>`);
+    this.structure.find(".tab-nav").append(this.slipper);
+    $(".nav-item").click((event) => this.select(event));
+    this.select = function (event) {
+        const left = event.target.offsetLeft;
+        const width = event.target.getBoundingClientRect().width;
+        const slipper = this.slipper.get(0);
+        slipper.style.width = `${width}px`;
+        slipper.style.left = `${left}px`;
+        if (this.selected)
+            this.selected.removeClass("tab-selected");
+        this.selected = $(`#_${event.target.id}`);
+        this.selected.addClass("tab-selected");
+    };
+    this.select({target: this.structure.find(".tab-nav").children().get(0)});
+
 }
