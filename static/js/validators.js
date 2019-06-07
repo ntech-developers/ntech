@@ -7,11 +7,9 @@
 //dependencies : jquery, jquery-dajax, util.js
 
 const CheckList = {
-    email: false,
     first_name: false,
     last_name: false,
     mobile: false,
-    username: false,
     password1: false,
     password2: false,
     gender: true,
@@ -19,6 +17,18 @@ const CheckList = {
     institution: false,
     new_institution: false,
     date_of_birth: false,
+};
+
+const AsyncChecklist = {
+    // Validations that carried out instantaneously e.g. ajax validations
+    // Ensure the values are always a promises!
+    email: new Promise((resolve) => resolve(false)),
+    username: new Promise((resolve) => resolve(false)),
+};
+
+const Initial = {
+    username: null,
+    email: null,
 };
 
 function calculate_strength() {
@@ -40,7 +50,7 @@ $("#institution").change(function () {
     }
 });
 
-function calculateAge(birthday) {
+function calculate_age(birthday) {
     // birthday is a date
     let ageDifMs = Date.now() - birthday.getTime();
     let ageDate = new Date(ageDifMs);
@@ -51,7 +61,7 @@ function calculateAge(birthday) {
 $("#date_of_birth").change(function () {
     let dob = new Date($(this).val());
     if (dob) {
-        $("#age-val").find("span").text(calculateAge(dob));
+        $("#age-val").find("span").text(calculate_age(dob));
     } else {
         //do something for invalid date
     }
@@ -75,67 +85,81 @@ $("#skill-select").change(function () {
     }
 });
 
-function is_email_taken(email, on_complete = () => {
-}) {
-    if (email === "") {
-        $("#em-err").text("This field cannot be empty");
-        CheckList.email = false;
-        return
-    }
-    $("#em-err").text("");
-    $.ajax({
-        type: "GET",
-        url: "email/verify",
-        data: {"email": email},
-        success: function (response) {
-            if (response["exists"]) {
-                CheckList.email = false;
-                $("#em-err").text("This email is taken");
-            } else {
-                CheckList.email = true;
-                $("#em-err").text("");
-            }
-            $("#email").parent().removeClass("load-mode");
-            on_complete();
-        },
-        error: function () {
-            CheckList.email = false;
-            $("#email").parent().removeClass("load-mode");
-            on_complete();
-        }
+function activate_tags() {
+    const input = $("#skill");
+    selected = input.val() ? input.val().split(",") : [];
+    selected.forEach(function (value) {
+        let tag = $(`<span class='tag small-description'>${value}&nbsp;<i class="ion-ios-close-empty"></i> </span>`);
+        $("#skill-tags").append(tag);
+        tag.find("i").click(function () {
+            selected.splice(selected.indexOf(value), 1);
+            tag.remove();
+            input.val(selected.join(","));
+        })
     })
 }
 
-function is_username_taken(username, on_complete = () => {
-}) {
-    if (username === "") {
-        $("#un-err").text("This field cannot be empty");
-        CheckList.username = false;
-        return;
-    }
-    $("#un-err").text("");
-    $("#username").parent().addClass("load-mode");
-    $.ajax({
-        type: "GET",
-        url: "username/verify",
-        data: {"username": username},
-        success: function (response) {
-            if (response["exists"]) {
-                CheckList.username = false;
-                $("#un-err").text("This username is taken");
-            } else {
-                CheckList.username = true;
-                $("#un-err").text("");
-            }
-            $("#username").parent().removeClass("load-mode");
-            on_complete();
-        },
-        error: function () {
-            CheckList.username = false;
-            $("#username").parent().removeClass("load-mode");
-            on_complete();
+
+function is_email_taken(email) {
+    AsyncChecklist.email = new Promise((resolve) => {
+        if (email === "") {
+            $("#em-err").text("This field cannot be empty");
+            resolve(false);
+        } else {
+            $("#em-err").text("");
+            $.ajax({
+                type: "GET",
+                url: "/accounts/email/verify",
+                data: {"email": email},
+                success: function (response) {
+                    if (response["exists"] && Initial.email !== email) {
+                        resolve(false);
+                        $("#em-err").text("This email is taken");
+                    } else {
+                        resolve(true);
+                        $("#em-err").text("");
+                    }
+                    $("#email").parent().removeClass("load-mode");
+                },
+                error: function () {
+                    resolve(false);
+                    $("#em-err").text("Failed to authenticate. Check your connection.");
+                    $("#email").parent().removeClass("load-mode");
+                }
+            })
         }
-    })
+    });
+}
+
+function is_username_taken(username) {
+    AsyncChecklist.username = new Promise((resolve) => {
+        if (username === "") {
+            $("#un-err").text("This field cannot be empty");
+            resolve(false);
+        } else {
+            $("#un-err").text("");
+            $("#username").parent().addClass("load-mode");
+            $.ajax({
+                type: "GET",
+                url: "/accounts/username/verify",
+                data: {"username": username},
+                success: function (response) {
+                    if (response["exists"] && Initial.username !== username) {
+                        resolve(false);
+                        $("#un-err").text("This username is taken");
+                    } else {
+                        resolve(true);
+                        $("#un-err").text("");
+                    }
+                    $("#username").parent().removeClass("load-mode");
+                },
+                error: function () {
+                    resolve(false);
+                    $("#username").parent().removeClass("load-mode");
+                }
+            })
+        }
+    });
 }
 
 function matches(input_1, input_2) {
@@ -180,9 +204,48 @@ function field_is_required(field, error, condition = null) {
     })
 }
 
-function submit(event) {
+function NumericValidator(value) {
+    if (!isNaN(value)) {
+        return "Password is entirely numeric"
+    }
+}
+
+const PASSWORD_MIN_LENGTH = 8;
+
+function LengthValidator(value) {
+    if (value.length < PASSWORD_MIN_LENGTH) {
+        return "Password is too short"
+    }
+}
+
+const validators = [NumericValidator, LengthValidator];
+
+function validate_password(field, error, confirm_field = null) {
+    $(field).on("change blur keyup", function () {
+        $(error).text("");
+        if (confirm_field)
+            $(confirm_field).trigger("blur");
+        if ($(field).val() === "") {
+            $(error).text("This field cannot be empty");
+            CheckList[$(field).attr("name")] = false;
+            return;
+        }
+        let errors = [];
+        let value = $(field).val();
+        validators.map((validator) => {
+            let val = validator(value);
+            if (val)
+                errors.push(val)
+        });
+        $(error).text(errors.join(", "));
+        CheckList[$(field).attr("name")] = !errors.length;
+    })
+}
+
+function submit(event, on_valid = null) {
     event.preventDefault(1);
     $("input").trigger("blur"); // Force validations to be carried out by the inputs
+    $(this).find(".loader-img").removeClass("hidden");
     let failed = false;
     let fail_location = [];
     for (let key in CheckList) {
@@ -193,11 +256,28 @@ function submit(event) {
             }
         }
     }
-    if (failed && fail_location[0]) {
-        fail_location[0].scrollIntoView({behavior: "smooth", block: "center"});
-    } else {
-        $("#submit").trigger("click");
-    }
+    AsyncChecklist.username.then((value) => {
+        if (!value) {
+            failed = true;
+            fail_location.push(document.getElementsByName("username")[0]);
+        }
+        AsyncChecklist.email.then((val) => {
+            if (!val) {
+                failed = true;
+                fail_location.push(document.getElementsByName("email")[0]);
+            }
+
+            if (failed && fail_location[0]) {
+                fail_location[0].scrollIntoView({behavior: "smooth", block: "center"});
+            } else {
+                if (on_valid)
+                    on_valid();
+                else
+                    $("#submit").trigger("click");
+            }
+            $(event.target).find(".loader-img").addClass("hidden");
+        })
+    });
 }
 
 function institution_validation() {
@@ -230,9 +310,8 @@ $("#password2").blur(() => compare_password(null, true));
 $("#password2").keyup(compare_password);
 $("#new_institution").on("blur keyup", institution_validation);
 field_is_required($("#first_name"), $("#fn-err"));
-field_is_required($("#username"), $("#un-err"));
 field_is_required($("#mobile"), $("#mb-err"));
-field_is_required($("#password"), $("#pw-err"));
+validate_password($("#password"), $("#pw-err"), $("#password2"));
 field_is_required($("#date_of_birth"), $("#dob-err"));
 field_is_required($("#last_name"), $("#ln-err"));
 field_is_required($("#gender"), $("#gn-err"));
@@ -249,7 +328,7 @@ function pre_authenticate() {
     $(".error").text(""); // Clear existing errors
     $.ajax({
         type: "POST",
-        url: "preauth",
+        url: "/accounts/preauth",
         data: {"username": $("#id_username").val(), "password": $("#id_password").val(), "csrfmiddlewaretoken": csrf},
         success: function (response) {
             switch (response.status) {
@@ -274,3 +353,46 @@ function pre_authenticate() {
 field_is_required($("#id_username"), $("#lun-err"));
 field_is_required($("#id_password"), $("#lpw-err"));
 $("#pre-submit").click(pre_authenticate);
+
+// =============================== user info update ======================================
+
+$("#update_info").click(() => {
+    $("#floating-form").removeClass("hidden")
+});
+$("#cancel_update").click(function () {
+    $("#floating-form").addClass("hidden");
+});
+
+$("#submit-update").click(function (event) {
+    event.preventDefault();
+    update_info(event);
+});
+
+function update_info(event) {
+    event.preventDefault();
+    CheckList.password1 = true;
+    CheckList.password2 = true;
+    event.target = this;
+    submit(event, update);
+}
+
+function update() {
+    const form = $("#update-form");
+    $.ajax({
+        type: "POST",
+        url: "/accounts/profile/",
+        data: form.serialize(),
+        success: function (response) {
+            if (response['successful']) {
+                location.reload();
+            } else {
+                const errors = $(response.error);
+                form.prepend($(response.error));
+                errors.get(0).scrollIntoView({behavior: "smooth"});
+            }
+        },
+        error: function () {
+            console.log("failed to connect");
+        }
+    })
+}
