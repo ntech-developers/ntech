@@ -3,15 +3,16 @@
 {% block styles %}
     {% comment "additional stylesheets for this template go here" %}{% endcomment %}
     <link rel="stylesheet" href={% static "css/home.css" %}>
+    <link rel="stylesheet" href={% static "css/forms.css" %}>
 {% endblock %}
 {% block header %}
     <div class="menubar">
         <p class="logo-text menubar left"><img alt="ntech-logo" src={% static "images/favicon.png" %}>tech</p>
         <ul id="menubar" class="menubar left" role="menubar">
-            <li class="menuitem"><a href="#">Home</a></li>
-            <li class="menuitem"><a href="#">Schedule</a></li>
-            <li class="menuitem"><a href="#">FAQ</a></li>
-            <li class="menuitem"><a href="#">About</a></li>
+            <li class="menuitem"><a href={% url "info:home" %}>Home</a></li>
+            <li class="menuitem"><a href={% url "info:schedule" %}>Schedule</a></li>
+            <li class="menuitem"><a href={% url "info:faq" %}>FAQ</a></li>
+            <li class="menuitem"><a href={% url "info:about" %}>About</a></li>
         </ul>
     </div>
     <div id="menu-actions" class="menubar force-right">
@@ -23,14 +24,16 @@
             class="ion-android-menu medium-description" style="font-size: 1.5em"></i></p>
 {% endblock %}
 {% block content %}
-    <div class="overlay hidden">
+    {% include "profile_update.html" %}
+    <div class="overlay invisible">
         <!--For responsive menu. Ensure it is present for pages with the responsive menu-->
-        <div id="menu-list" class="ruled">
+        <div id="menu-list" class="ruled hidden">
             <ul role="menubar">
                 <li class="menuitem-v"><a href={% url "info:home" %}><i class="ion-ios-home"></i>Home</a></li>
-                <li class="menuitem-v"><a href="#"><i class="ion-ios-stopwatch blue"></i>Schedule</a></li>
-                <li class="menuitem-v"><a href="#"><i class="ion-help-circled blue"></i>FAQ</a></li>
-                <li class="menuitem-v"><a href="#"><img width="20px" height="20px" alt="ntect-logo"
+                <li class="menuitem-v"><a href={% url "info:schedule" %}><i class="ion-ios-stopwatch blue"></i>Schedule</a>
+                </li>
+                <li class="menuitem-v"><a href={% url "info:faq" %}><i class="ion-help-circled blue"></i>FAQ</a></li>
+                <li class="menuitem-v"><a href={% url "info:about" %}><img width="20px" height="20px" alt="ntect-logo"
                                                         src={% static "images/favicon.png" %}>&nbsp;About</a></li>
             </ul>
             <hr style="width: 80%;margin: 20px auto">
@@ -42,12 +45,114 @@
             </ul>
         </div>
     </div>
-    <div class="large-description blue container waypoint-grow">
-        <i class="ion-hammer blue" style="font-size: 5em"></i>
+    <div class="tab-structure">
+        <div class="tab-nav">
+            <p id="personal" class="nav-item"><i class="ion-ios-person"></i>&nbsp;Personal info</p>
+            <p id="awards" class="nav-item"><i class="ion-ios-box"></i>&nbsp;Awards</p>
+            <p id="team" class="nav-item"><i class="ion-ios-people"></i>&nbsp;Teams</p>
+        </div>
+        <div class="tab-body">
+            <div class="tab-content tab-selected" id="_personal">
+                <div class="tab-button-holder">
+                    <button class="blue-btn right slight-margin" id="update_info">Change</button>
+                </div>
+                <div class="tab-scrolled-body">
+                    <p class="small-description ruled limit-width" style="padding-bottom: 10px;"><i
+                            class="ion-ios-person"></i>&nbsp;Personal detail</p>
+                    <div class="detail-group">
+                        <div class="detail-pack">
+                            <p class="label">Username</p>
+                            <p class="value">{{ user.username }}</p>
+                        </div>
+                        <div class="detail-pack">
+                            <p class="label">First Name</p>
+                            <p class="value">{{ user.first_name }}</p>
+                        </div>
+                        <div class="detail-pack">
+                            <p class="label">Last Name</p>
+                            <p class="value">{{ user.last_name }}</p>
+                        </div>
+                        <div class="detail-pack">
+                            <p class="label">Age</p>
+                            <p class="value">{{ user.profile.age }} yrs</p>
+                        </div>
+                        <div class="detail-pack">
+                            <p class="label">Gender</p>
+                            <p class="value">
+                                {% if user.profile.gender == 'Female' %}
+                                    <i class="ion-female"></i>
+                                {% else %}
+                                    <i class="ion-male"></i>
+                                {% endif %}
+                                &nbsp;
+                                {{ user.profile.gender }}
+                            </p>
+                        </div>
+                        <div class="detail-pack">
+                            <p class="label">Nationality</p>
+                            <p class="value">
+                                <img class="flag-img" alt="{{ user.profile.country }}"
+                                     src="{{ user.profile.country.flag.url }}">&nbsp;
+                                {{ user.profile.country }}
+                            </p>
+                        </div>
+                        <div class="detail-pack" style="max-width: 600px">
+                            <p class="label">Institution</p>
+                            <p class="value">{{ user.profile.institution }}</p>
+                        </div>
+                    </div>
+                    <div class="detail-group">
+                        <p class="small-description ruled limit-width" style="padding-bottom: 10px;"><i
+                                class="ion-android-call"></i>&nbsp;Contact information</p>
+                        <div class="detail-pack">
+                            <p class="label">Email</p>
+                            <p class="value">{{ user.email }}</p>
+                        </div>
+                        <div class="detail-pack">
+                            <p class="label">Mobile contact</p>
+                            <p class="value">{{ user.profile.mobile }}</p>
+                        </div>
+                    </div>
+                    <div class="detail-group">
+                        <p class="small-description limit-width" style="padding-bottom: 10px;">
+                            <i class="ion-wand"></i>&nbsp;Personal Skills</p>
+                        <div class="container limit-width tag-container">
+                            {% for skill in user.profile.skills_list %}
+                                <span class='tag small-description'>{{ skill }}&nbsp;<i
+                                        class="ion-ios-close-empty invisible"></i> </span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="_awards">
+                <p class="large-description blue container">
+                    <i class="ion-ios-box-outline blue" style="font-size: 5em"></i>
+                </p>
+                <p class="large-description container">Looks like you need to keep working!</p>
+                <p class="container medium-description" style="display: block;text-align: center">
+                    You still have time! Any prizes you receive will appear here but till then you gotta work.
+                </p>
+            </div>
+            <div class="tab-content" id="_team">
+                <p class="large-description blue container">
+                    <i class="ion-ios-people blue" style="font-size: 5em"></i>
+                </p>
+                <p class="large-description container">You have not been placed in any team yet!</p>
+                <p class="container medium-description limit-width" style="display: block;text-align: center">
+                    All the teams you belong to will appear here. Most if not all challenges are done in teams.
+                    <br>You will be automatically placed into a team but you can also create your own team.
+                </p>
+            </div>
+        </div>
     </div>
-    <p class="large-description container waypoint">OOPS! Persons at work!</p>
-    <p class="container medium-description waypoint" style="display: block;text-align: center">
-        This page is still under construction. Please visit our <a class="blue" href={% url "info:home" %}>homepage</a>
-        instead
-    </p>
+{% endblock %}
+{% block scripts %}
+    <script src={% static "js/validators.js" %}></script>
+    <script>
+        const DashboardTab = new NoteBook($(".tab-structure"));
+        Initial.username = "{{ user.username }}";
+        Initial.email = "{{ user.email }}";
+        activate_tags();
+    </script>
 {% endblock %}
