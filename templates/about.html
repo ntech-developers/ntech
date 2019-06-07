@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+    {% comment "additional stylesheets for this template go here" %}{% endcomment %}
+    <link rel="stylesheet" href={% static "css/home.css" %}>
+{% endblock %}
+{% block header %}
+    <div class="menubar">
+        <p class="logo-text menubar left"><img alt="ntech-logo" src={% static "images/favicon.png" %}>tech</p>
+        <ul id="menubar" class="menubar left" role="menubar">
+            <li class="menuitem"><a href={% url "info:home" %}>Home</a></li>
+            <li class="menuitem"><a href={% url "info:schedule" %}>Schedule</a></li>
+            <li class="menuitem"><a href={% url "info:faq" %}>FAQ</a></li>
+            <li class="menuitem active"><a>About</a></li>
+        </ul>
+    </div>
+    <div id="menu-actions" class="menubar force-right">
+        <a class="medium-description blue"><i class="ion-ios-person"></i>&nbsp;{{ user.username }}</a>&nbsp;
+        <a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
+                class="ion-log-out"></i></a>
+    </div>
+    <p id="menu-btn" class="menubar force-right" style="padding: 0 10px 0 10px"><i
+            class="ion-android-menu medium-description" style="font-size: 1.5em"></i></p>
+{% endblock %}
+{% block content %}
+    <div class="overlay invisible">
+        <!--For responsive menu. Ensure it is present for pages with the responsive menu-->
+        <div id="menu-list" class="ruled hidden">
+            <ul role="menubar">
+                <li class="menuitem-v"><a href={% url "info:home" %}><i class="ion-ios-home"></i>Home</a></li>
+                <li class="menuitem-v"><a href={% url "info:schedule" %}><i class="ion-ios-stopwatch blue"></i>Schedule</a>
+                </li>
+                <li class="menuitem-v"><a href={% url "info:faq" %}><i class="ion-help-circled blue"></i>FAQ</a></li>
+                <li class="menuitem-v active"><a><img width="20px" height="20px" alt="ntect-logo"
+                                                      src={% static "images/favicon.png" %}>&nbsp;About</a></li>
+            </ul>
+            <hr style="width: 80%;margin: 20px auto">
+            <ul role="menubar">
+                <li class="menuitem-v blue"><a href={% url "accounts:register" %}><i class="ion-ios-person"></i>Register</a>
+                </li>
+                <li class="menuitem-v blue"><a href={% url "accounts:logout" %}><i class="ion-log-out"></i>&nbsp;Sign
+                    out</a></li>
+            </ul>
+        </div>
+    </div>
+    {% include "under_construction.html" %}
+{% endblock %}

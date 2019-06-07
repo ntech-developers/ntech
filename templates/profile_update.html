@@ -1,0 +1,142 @@
+{% load staticfiles %}
+<div class="complete-overlay hidden" id="floating-form">
+    <i id="cancel_update" class="ion-ios-close-empty medium-description round-btn float-top-left"></i>
+    <form id="update-form" autocomplete="off" method="post" class="floating-form limit-width" style="max-width: 600px">
+        {% csrf_token %}
+        <div class="container small-description blue">Contact information</div>
+        <div class="input-layer">
+            <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;Username</span>
+            <input id="username" type="text" name="username" class="data" title="alias"
+                   value="{{ user.username }}"/><br>
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+            <p class="error" id="un-err"></p>
+        </div>
+        <div class="input-layer ">
+            <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;First name</span>
+            <input id="first_name" type="text" name="first_name" class="data" title="First name"
+                   value="{{ user.first_name }}"/><br>
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+            <p class="error" id="fn-err"></p>
+        </div>
+        <div class="input-layer ">
+            <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;Last name</span>
+            <input id="last_name" type="text" name="last_name" class="data" title="Last name"
+                   value="{{ user.last_name }}"/><br>
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+            <p class="error" id="ln-err"></p>
+        </div>
+        <div class="input-layer ">
+            <span class="placeholder"><i class="ion-android-mail"></i>&nbsp;&nbsp;Email</span>
+            <input id="email" type="email" value="{{ user.email }}" name="email" class="data"
+                   title="email"/><br>
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+            <p class="error" id="em-err"></p>
+        </div>
+        <p class="placeholder container "><i class="ion-android-call"></i>&nbsp;&nbsp;Mobile contact</p>
+        <div class="container limit-width ruled">
+            <div class="input-layer select-layer" tabindex="0" style="width: 25%!important;">
+                <select class="value-point" id="country_code" name="code">
+                    {% for country in form.countries %}
+                        <option value="{{ country.code }}"
+                                {% if user.profile.mobile_code == country.code %}selected{% endif %}>{{ country.code }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-layer " style="width: 70%!important; display: inline-block">
+                <span class="placeholder">Phone number &nbsp;<i>e.g. 712345678</i></span>
+                <input class="data" type="number" id="mobile" name="mobile"
+                       value="{{ user.profile.raw_mobile_number }}">
+                <div class="flash"></div>
+                <div class="flash-inactive"></div>
+            </div>
+        </div>
+        <p class="error limit-width" id="mb-err"></p>
+        <p class=" container medium-description " style="color: #3d8aff">Classification information</p>
+        <div class="container limit-width" style="height: 60px">
+            <div class="input-layer select-layer" tabindex="0">
+                <select class="select" id="gender" name="gender">
+                    <option value="Male" {% if user.profile.gender == "Male" %}selected{% endif %}>Male</option>
+                    <option value="Female" {% if user.profile.gender == "Female" %}selected{% endif %}>Female</option>
+                </select>
+                <p class="error" id="gn-err"></p>
+            </div>
+            <div class="input-layer select-layer" tabindex="0">
+                <select id="country" name="country">
+                    {% for country in form.countries %}
+                        <option value="{{ country.id }}"
+                                {% if user.profile.country.id == country.id %}selected{% endif %}>
+                            {{ country.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <p class="error" id="ct-err"></p>
+            </div>
+        </div>
+        <div class="container limit-width">
+            <div class="input-layer select-layer" style="width: 100%" tabindex="0">
+                <select class="select" id="institution" name="institution">
+                    <option value="">Select Institution</option>
+                    {% for institution in form.institutions %}
+                        <option value="{{ institution.id }}"
+                                {% if user.profile.institution.id == institution.id %}selected{% endif %}>{{ institution.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <p class="error limit-width" id="it-err"></p>
+        <p class="container limit-width  small-description">
+            If your institution is not available fill in the other section below
+        </p>
+        <div class="input-layer ">
+            <span class="placeholder">Other</span>
+            <input id="new_institution" type="text" class="data" name="new_institution"/><br>
+            <div class="flash left"></div>
+            <div class="flash right"></div>
+            <div class="flash-inactive"></div>
+            <p class="error" id="ot-err"></p>
+        </div>
+        <div class="container limit-width">
+            <div class="input-layer " style="width: 60%">
+                <span class="placeholder placeholder-hidden"><i
+                        class="ion-calendar"></i>&nbsp;&nbsp;Date of birth</span>
+                <input id="date_of_birth" type="date" class="data" name="date_of_birth" title="date of birth"
+                       value="{{ user.profile.date_of_birth|date:'Y-m-d' }}"/><br>
+                <div class="flash"></div>
+                <div class="flash-inactive"></div>
+                <p class="error" id="dob-err"></p>
+            </div>
+            <p class="small-description container" id="age-val" style="width: 40%;align-items: center">Age:&nbsp;
+                <span class="blue">{{ user.profile.age }}</span></p>
+        </div>
+        <p class="container limit-width small-description ">
+            You can select multiple skills and they will appear below.
+        </p>
+        <div class="container limit-width">
+            <div class="input-layer select-layer" style="width: 100%" tabindex="0">
+                <select class="select" id="skill-select" name="skill-select">
+                    <option value="Coding">Coding</option>
+                    <option value="Critical thinking">Critical thinking</option>
+                    <option value="Graphic design">Graphic design</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Marketing">Marketing</option>
+                </select>
+                <p class="error" id="sk-err"></p>
+            </div>
+        </div>
+        <div id="skill-tags" class="container limit-width tag-container ">
+            <input id="skill" name="skills" value="{% if user.profile.skills %}{{ user.profile.skills }}{% endif %}"
+                   hidden>
+        </div>
+        <div class="container" style="margin:60px 0 60px 0">
+            <input type="submt" id="submit" hidden>
+            <button id="submit-update" class="blue-btn" style="height: 35px">
+                Update info&nbsp;
+                <img class="loader-img right hidden" src={% static "images/loaders/tail-spin.svg" %}/>
+            </button>
+        </div>
+    </form>
+</div>
