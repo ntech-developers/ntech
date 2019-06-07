@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
-from .forms import SignUpForm
+from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm
 
 
 def registration_form(request):
@@ -73,4 +73,15 @@ def pre_authenticate(request):
 
 @login_required
 def profile(request):
-    return render(request, "profile.html", {"user": request.user})
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, instance=request.user.profile)
+
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            return JsonResponse({"successful": True})
+        else:
+            return JsonResponse({"successful": False, "error": str(u_form.errors) + str(p_form.errors)})
+
+    return render(request, "profile.html", {"user": request.user, "form": SignUpForm()})
