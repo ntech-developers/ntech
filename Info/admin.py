@@ -40,5 +40,4 @@ class CountryAdmin(ModelAdmin):
 admin.site.register(Institution, InstitutionAdmin)
 admin.site.register(Country, CountryAdmin)
 
-admin.site.site_url = None
 admin.site.site_header = "Ntech admin panel"
