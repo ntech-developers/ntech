@@ -187,19 +187,19 @@ function compare_password(ev = null, strict = false) {
     }
 }
 
-function field_is_required(field, error, condition = null) {
+function field_is_required(field, error, condition = null, checklist = CheckList) {
     $(field).on("blur keyup change", function () {
         if (condition !== null && !condition()) {
             $(error).text("");
-            CheckList[$(this).attr("name")] = true;
+            checklist[$(this).attr("name")] = true;
             return
         }
         if ($(this).val().toString() === "") {
-            CheckList[$(this).attr("name")] = false;
+            checklist[$(this).attr("name")] = false;
             $(error).text("This field cannot be empty");
         } else {
             $(error).text("");
-            CheckList[$(this).attr("name")] = true;
+            checklist[$(this).attr("name")] = true;
         }
     })
 }
@@ -220,14 +220,14 @@ function LengthValidator(value) {
 
 const validators = [NumericValidator, LengthValidator];
 
-function validate_password(field, error, confirm_field = null) {
+function validate_password(field, error, confirm_field = null, checklist = CheckList) {
     $(field).on("change blur keyup", function () {
         $(error).text("");
         if (confirm_field)
             $(confirm_field).trigger("blur");
         if ($(field).val() === "") {
             $(error).text("This field cannot be empty");
-            CheckList[$(field).attr("name")] = false;
+            checklist[$(field).attr("name")] = false;
             return;
         }
         let errors = [];
@@ -238,7 +238,7 @@ function validate_password(field, error, confirm_field = null) {
                 errors.push(val)
         });
         $(error).text(errors.join(", "));
-        CheckList[$(field).attr("name")] = !errors.length;
+        checklist[$(field).attr("name")] = !errors.length;
     })
 }
 
@@ -393,6 +393,67 @@ function update() {
         },
         error: function () {
             console.log("failed to connect");
+        }
+    })
+}
+
+// ================================== password-reset =====================================
+
+$("#reset_password").click(() => {
+    $("#password-reset-popup").removeClass("hidden")
+});
+$("#cancel_reset").click(function () {
+    $("#password-reset-popup").addClass("hidden");
+});
+$("#submit-reset").click(function (event) {
+    event.preventDefault();
+    event.target = this;
+    reset(event);
+});
+
+const password_checklist = {
+    old_password: false,
+    new_password1: false,
+};
+
+validate_password($("#password"), $("#pw-err"), $("#password2"), password_checklist);
+field_is_required($("#old_password"), $("#ol-pw-err"), null, password_checklist);
+
+function reset(event) {
+    $("#password, #password2, #old_password").trigger("change");
+    if (password_checklist.new_password1 && CheckList.password2 && password_checklist.old_password) {
+        reset_password(event)
+    }
+}
+
+function clear_values() {
+    const fields = $("#password, #password2, #old_password");
+    fields.val("");
+    fields.trigger("blur");
+    $("#pw-err, #pw2-err, #ol-pw-err").text("");
+}
+
+function reset_password(event) {
+    const form = $("#password-reset");
+    $(event.target).find(".loader-img").removeClass("hidden");
+    $.ajax({
+        type: "POST",
+        url: "/accounts/password/reset",
+        data: form.serialize(),
+        success: function (response) {
+            if (response['successful']) {
+                //password reset successfully
+                create_message("Your password has been changed successfully.");
+                $("#password-reset-popup").addClass("hidden");
+                clear_values();
+            } else {
+                $("#ol-pw-err").text("Password entered is incorrect.")
+            }
+            $(event.target).find(".loader-img").addClass("hidden");
+        },
+        error: function () {
+            $("#ol-pw-err").text("Failed to authenticate. Check your connection.");
+            $(event.target).find(".loader-img").addClass("hidden");
         }
     })
 }

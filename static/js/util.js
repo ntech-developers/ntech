@@ -155,3 +155,14 @@ function NoteBook(tab_structure) {
     this.select({target: this.structure.find(".tab-nav").children().get(0)});
 
 }
+
+const messenger = $("#messenger");
+$("#messenger i").click(() => {
+    messenger.addClass("condensed")
+});
+
+function create_message(message, delay = 8) {
+    messenger.find("span").text(message);
+    messenger.removeClass("condensed");
+    setTimeout(() => messenger.addClass("condensed"), delay * 1000);
+}
