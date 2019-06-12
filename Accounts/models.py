@@ -66,7 +66,7 @@ class Project(models.Model):
 
     class Meta:
         ordering = ('name',)
-        db_table = "project"
+        db_table = 'project'
 
     def __unicode__(self):
         return self.name
