@@ -13,4 +13,5 @@ urlpatterns = [
     path('email/verify', views.verify_email, name="verify_email"),
     path('preauth', views.pre_authenticate, name="pre_authenticate"),
     path('profile/', views.profile, name="profile"),
+    path('password/reset', views.password_reset, name="password_reset"),
 ]

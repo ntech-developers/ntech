@@ -131,6 +131,10 @@ class PasswordChangeForm(SetPasswordForm):
     A form that lets a user change their password by entering their old
     password.
     """
+
+    error_messages = dict(SetPasswordForm.error_messages, **{
+        'password_incorrect': "Your old password was entered incorrectly. Please enter it again.",
+    })
     old_password = forms.CharField(label="Old password", widget=forms.PasswordInput)
 
     def clean_old_password(self):

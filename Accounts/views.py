@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
-from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm
+from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm, PasswordChangeForm
 
 
 def registration_form(request):
@@ -85,3 +85,13 @@ def profile(request):
             return JsonResponse({"successful": False, "error": str(u_form.errors) + str(p_form.errors)})
 
     return render(request, "profile.html", {"user": request.user, "form": SignUpForm()})
+
+
+@login_required
+def password_reset(request):
+    reset_form = PasswordChangeForm(request.user, data=request.POST)
+    if reset_form.is_valid():
+        reset_form.save()
+        return JsonResponse({"successful": True})
+    else:
+        return JsonResponse({"successful": False})

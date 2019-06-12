@@ -25,6 +25,7 @@
 {% endblock %}
 {% block content %}
     {% include "profile_update.html" %}
+    {% include "passsword_reset.html" %}
     <div class="overlay invisible">
         <!--For responsive menu. Ensure it is present for pages with the responsive menu-->
         <div id="menu-list" class="ruled hidden">
@@ -55,6 +56,7 @@
             <div class="tab-content tab-selected" id="_personal">
                 <div class="tab-button-holder">
                     <button class="blue-btn right slight-margin" id="update_info">Change</button>
+                    <button class="blue-btn right slight-margin" id="reset_password">Reset password</button>
                 </div>
                 <div class="tab-scrolled-body">
                     <p class="small-description ruled limit-width" style="padding-bottom: 10px;"><i
@@ -118,8 +120,7 @@
                             <i class="ion-wand"></i>&nbsp;Personal Skills</p>
                         <div class="container limit-width tag-container">
                             {% for skill in user.profile.skills_list %}
-                                <span class='tag small-description'>{{ skill }}&nbsp;<i
-                                        class="ion-ios-close-empty invisible"></i> </span>
+                                <span class='tag small-description'>{{ skill }}</span>
                             {% endfor %}
                         </div>
                     </div>
