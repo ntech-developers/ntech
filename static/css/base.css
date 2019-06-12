@@ -548,6 +548,25 @@ a, a:visited {
     transition: all 1s cubic-bezier(.08, .7, 0, 1.03);
 }
 
+.message {
+    width: 96%;
+    background: rgba(204, 216, 255, 0.85);
+    color: var(--lively-text-color);
+    text-align: center;
+    padding: 10px 2% 10px 2%;
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    height: 30px;
+    transition: all 1s cubic-bezier(.08, .7, 0, 1.03);
+}
+
+.condensed {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 .complete-overlay {
     top: 0;
 }

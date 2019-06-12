@@ -443,9 +443,10 @@ function reset_password(event) {
         success: function (response) {
             if (response['successful']) {
                 //password reset successfully
-                create_message("Your password has been changed successfully.");
+                create_message("Your password has been changed successfully. Logging you out...");
                 $("#password-reset-popup").addClass("hidden");
                 clear_values();
+                setTimeout(() => location.reload(), 9000);
             } else {
                 $("#ol-pw-err").text("Password entered is incorrect.")
             }
