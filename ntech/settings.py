@@ -83,9 +83,9 @@ DATABASES = {
 if not DEBUG:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ntech_data',
-        'USER': 'ntech_db',
-        'PASSWORD': 'ntech2019!',
+        'NAME': 'ntech_db',
+        'USER': 'ntech_data',
+        'PASSWORD': 'takeinitiative',
         'HOST': 'localhost',
         'PORT': '',
     }
