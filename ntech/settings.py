@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%!xhr=%1oeknp_zh7f@(44n)ed8bbct-0$)0-_+1b#7^10@n2^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -79,6 +79,16 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+if not DEBUG:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ntech_data',
+        'USER': 'ntech_db',
+        'PASSWORD': 'ntech2019!',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
