@@ -228,7 +228,7 @@ input {
     padding: 1%;
     background: var(--bright-text-color);
     box-shadow: 0 0 5px 3px var(--universal-text-color);
-    background: url("../images/topleftintersect.png") no-repeat;
+    background: var(--bright-background) no-repeat;
     background-size: 100% 100%;
     position: relative;
     overflow-y: auto;

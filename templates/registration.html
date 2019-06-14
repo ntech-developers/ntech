@@ -60,28 +60,28 @@
         as a team, each team member should complete the individual registration<br>
         before proceeding to team registration which can be accessed on your dashboard.
     </p>
-    <hr style="width: 80%;margin: 15px auto 10px" class="waypoint"/>
+    <hr style="width: 80%;margin: 15px auto 10px" class="waypoint">
     <p class=" container medium-description waypoint blue">Individual registration</p>
     <form autocomplete="off" method="post">
         {% csrf_token %}
         <div class="container small-description blue waypoint">Contact information</div>
         <div class="input-layer waypoint-side">
             <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;Username</span>
-            <input id="username" type="text" name="username" class="data" title="alias"/><br>
+            <input id="username" type="text" name="username" class="data" title="alias"><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="un-err"></p>
         </div>
         <div class="input-layer waypoint-side">
             <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;First name</span>
-            <input id="first_name" type="text" name="first_name" class="data" title="First name"/><br>
+            <input id="first_name" type="text" name="first_name" class="data" title="First name"><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="fn-err"></p>
         </div>
         <div class="input-layer waypoint-side">
             <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;Last name</span>
-            <input id="last_name" type="text" name="last_name" class="data" title="Last name"/><br>
+            <input id="last_name" type="text" name="last_name" class="data" title="Last name"><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="ln-err"></p>
@@ -89,7 +89,7 @@
         <div class="input-layer waypoint-side">
             <span class="placeholder"><i class="ion-android-mail"></i>&nbsp;&nbsp;Email</span>
             <input id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" class="data"
-                   title="email"/><br>
+                   title="email"><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="em-err"></p>
@@ -123,7 +123,7 @@
         </div>
         <div class="input-layer waypoint-side">
             <span class="placeholder"><i class="ion-ios-locked"></i>&nbsp;&nbsp;Password</span>
-            <input id="password" type="password" class="data" name="password1" title="password"/><br>
+            <input id="password" type="password" class="data" name="password1" title="password"><br>
             <div class="flash left"></div>
             <div class="flash right"></div>
             <div class="flash-inactive"></div>
@@ -131,7 +131,7 @@
         </div>
         <div class="input-layer waypoint-side terminate">
             <span class="placeholder"><i class="ion-ios-locked"></i>&nbsp;&nbsp;Confirm password</span>
-            <input id="password2" type="password" class="data" name="password2" title=" confirm password"/><br>
+            <input id="password2" type="password" class="data" name="password2" title=" confirm password"><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="pw2-err"></p>
@@ -173,7 +173,7 @@
         </p>
         <div class="input-layer waypoint-side">
             <span class="placeholder">Other</span>
-            <input id="new_institution" type="text" class="data" name="new_institution"/><br>
+            <input id="new_institution" type="text" class="data" name="new_institution"><br>
             <div class="flash left"></div>
             <div class="flash right"></div>
             <div class="flash-inactive"></div>
@@ -183,7 +183,7 @@
             <div class="input-layer waypoint-side" style="width: 60%">
                 <span class="placeholder placeholder-hidden"><i
                         class="ion-calendar"></i>&nbsp;&nbsp;Date of birth</span>
-                <input id="date_of_birth" type="date" class="data" name="date_of_birth" title="date of birth"/>
+                <input id="date_of_birth" type="date" class="data" name="date_of_birth" title="date of birth">
                 <br>
                 <div class="flash"></div>
                 <div class="flash-inactive"></div>
@@ -214,7 +214,7 @@
             <input type="submit" id="submit" hidden>
             <button id="pre-submit" class="blue-btn" style="height: 35px">
                 Finish registration&nbsp;
-                <img class="loader-img right hidden" src={% static "images/loaders/tail-spin.svg" %}/>
+                <img class="loader-img right hidden" src={% static "images/loaders/tail-spin.svg" %}>
             </button>
         </div>
     </form>

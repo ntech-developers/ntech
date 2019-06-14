@@ -7,7 +7,7 @@
         <div class="input-layer">
             <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;Username</span>
             <input id="username" type="text" name="username" class="data" title="alias"
-                   value="{{ user.username }}"/><br>
+                   value="{{ user.username }}"><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="un-err"></p>
@@ -15,7 +15,7 @@
         <div class="input-layer ">
             <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;First name</span>
             <input id="first_name" type="text" name="first_name" class="data" title="First name"
-                   value="{{ user.first_name }}"/><br>
+                   value="{{ user.first_name }}"><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="fn-err"></p>
@@ -23,7 +23,7 @@
         <div class="input-layer ">
             <span class="placeholder"><i class="ion-ios-person"></i>&nbsp;&nbsp;Last name</span>
             <input id="last_name" type="text" name="last_name" class="data" title="Last name"
-                   value="{{ user.last_name }}"/><br>
+                   value="{{ user.last_name }}"><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="ln-err"></p>
@@ -31,7 +31,7 @@
         <div class="input-layer ">
             <span class="placeholder"><i class="ion-android-mail"></i>&nbsp;&nbsp;Email</span>
             <input id="email" type="email" value="{{ user.email }}" name="email" class="data"
-                   title="email"/><br>
+                   title="email"><br>
             <div class="flash"></div>
             <div class="flash-inactive"></div>
             <p class="error" id="em-err"></p>
@@ -93,7 +93,7 @@
         </p>
         <div class="input-layer ">
             <span class="placeholder">Other</span>
-            <input id="new_institution" type="text" class="data" name="new_institution"/><br>
+            <input id="new_institution" type="text" class="data" name="new_institution"><br>
             <div class="flash left"></div>
             <div class="flash right"></div>
             <div class="flash-inactive"></div>
@@ -104,7 +104,7 @@
                 <span class="placeholder placeholder-hidden"><i
                         class="ion-calendar"></i>&nbsp;&nbsp;Date of birth</span>
                 <input id="date_of_birth" type="date" class="data" name="date_of_birth" title="date of birth"
-                       value="{{ user.profile.date_of_birth|date:'Y-m-d' }}"/><br>
+                       value="{{ user.profile.date_of_birth|date:'Y-m-d' }}"><br>
                 <div class="flash"></div>
                 <div class="flash-inactive"></div>
                 <p class="error" id="dob-err"></p>
@@ -135,7 +135,7 @@
             <input type="submt" id="submit" hidden>
             <button id="submit-update" class="blue-btn" style="height: 35px">
                 Update info&nbsp;
-                <img class="loader-img right hidden" src={% static "images/loaders/tail-spin.svg" %}/>
+                <img class="loader-img right hidden" src={% static "images/loaders/tail-spin.svg" %}>
             </button>
         </div>
     </form>
