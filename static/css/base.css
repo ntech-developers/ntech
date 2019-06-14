@@ -3,7 +3,6 @@
     --universal-text-color: #5a5a5a;
     --lively-text-color: #3d8aff;
     --bright-text-color: #f7f7f7;
-    --backrgound: url("../../images/topleftintersect.png") no-repeat;
 }
 
 body {
@@ -11,8 +10,8 @@ body {
     margin: 2px;
     width: 100%;
     overflow: hidden;
-    background: var(--backrgound);
     background-size: 100% 100%;
+    background: var(--bright-background) no-repeat;
 }
 
 a {
