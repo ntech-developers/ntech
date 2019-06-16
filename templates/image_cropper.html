@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<div class="complete-overlay force-centre hidden" id="image-crop-popup">
+    <div class="floating-form limit-width" style="height: 360px">
+        <p class="medium-description blue container" style="margin: 0 auto;padding: 0">Set profile image</p>
+        <div class="crop-encapsulate">
+            <form class="profile-image" method="post" enctype="multipart/form-data" id="image-upload-form">
+                {% csrf_token %}
+                <input type="file" name="image" onchange="read_file(null,this,'uploaded-img')"
+                       accept="image/*"
+                       id="img-upload" hidden/>
+                <i class="place-holder" style="font-size: 1000%;overflow: hidden;display: inline-block"></i>
+                <i class="place-holder blue" style="z-index: 0;font-size: 1000%;overflow: hidden;display: inline-block">
+                </i>
+                <img id="image-loader" class="loader-img invisible" style="width: 50px;height: 50px;z-index: 30"
+                     src={% static "images/loaders/tail-spin.svg" %}>
+                <img id="uploaded-img" width="180" height="180" alt="" src="{{ user.profile.get_avatar }}">
+            </form>
+        </div>
+        <div class="container">
+            <i class="ion-ios-plus-empty link-icon medium-description round-btn force-centre center-pos" id="zoom-in"
+               title="zoom in"></i>
+            <i class="ion-ios-minus-empty medium-description round-btn force-centre center-pos" id="zoom-out"
+               title="zoom out"></i>
+            <label for="img-upload" class="ion-camera medium-description round-btn force-centre"></label>
+            <i class="ion-ios-close-empty medium-description round-btn force-centre" id="cancel-crop"
+               title="cancel"></i>
+            <i class="ion-ios-checkmark-empty medium-description round-btn force-centre center-pos" id="finish-upload"
+               title="save"></i>
+        </div>
+    </div>
+</div>

@@ -166,3 +166,86 @@ function create_message(message, delay = 8) {
     messenger.removeClass("condensed");
     setTimeout(() => messenger.addClass("condensed"), delay * 1000);
 }
+
+function Touch(body) {
+    this.pointer_cache = {}; // store data for the case of multi-touch
+    this.on_start = () => {
+    };
+    this.on_end = () => {
+    };
+    this.on_zoom = () => {
+    };
+    this.on_drag = () => {
+    };
+    this.on_double_tap = () => {
+    };
+    this.on_swipe_left = () => {
+    };
+    this.on_swipe_right = () => {
+    };
+    this.body = body;
+    this.last_touch = null;
+    this.tap_margin = 300;// duration between taps in ms
+    this.swipe_sensitivity = 10;// distance to be considered a swipe.
+    this._touch_start = function (ev) {
+        let time = new Date();
+        this.pointer_cache[ev.pointerId] = ev;
+        this.on_start(ev);
+        if (this.last_touch) {
+            if (time - this.last_touch.time < this.tap_margin) {
+                this.on_double_tap(ev);
+            }
+        }
+        this.last_touch = {id: ev.pointerId, time: time, ev: ev}
+    };
+    this._touch_end = function (ev) {
+        let page_x = this.pointer_cache[ev.pointerId].pageX;
+        delete this.pointer_cache[ev.pointerId];
+        if (this.last_touch) {
+            if (page_x - this.last_touch.ev.pageX < -this.swipe_sensitivity) this.on_swipe_left(ev);
+            else if (page_x - this.last_touch.ev.pageX > this.swipe_sensitivity) this.on_swipe_right(ev)
+        }
+        this.on_end(ev);
+    };
+    this._touch_move = function (ev) {
+        if (!this.pointer_cache[ev.pointerId]) return;
+        let ptr = [];
+        this.pointer_cache[ev.pointerId] = ev;
+        for (let pointer in this.pointer_cache) {
+            if (this.pointer_cache.hasOwnProperty(pointer)) {
+                ptr.push(this.pointer_cache[pointer])
+            }
+        }
+        if (ptr.length === 1) {
+            this.on_drag(ev);
+        } else {
+            let scale = Math.sqrt(Math.pow((ptr[0].pageX - ptr[1].pageX), 2) + Math.pow((ptr[0].pageY - ptr[1].pageY), 2));
+            this.on_zoom(scale - this.initial_zoom);
+            this.initial_zoom = scale;
+        }
+    };
+
+    this._touch_leave = function (ev) {
+        if (this.pointer_cache[ev.pointerId]) this._touch_end(ev);
+    };
+    this._bind = function () {
+        // To allow functionality on ios and apple based products add bindings to touch events
+        this.body.onpointerdown = (ev) => {
+            this._touch_start(ev)
+        };
+        this.body.onpointerup = (ev) => {
+            this._touch_end(ev)
+        };
+        this.body.onpointerleave = (ev) => {
+            this._touch_leave(ev)
+        };
+        this.body.onpointermove = (ev) => {
+            this._touch_move(ev)
+        };
+    };
+    this.rebind = function () {
+        this._bind();
+    };
+    this._bind();// bind events to the body
+}
+

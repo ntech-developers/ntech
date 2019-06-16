@@ -111,7 +111,7 @@ class ProfileUpdateForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('institution', 'skills', 'date_of_birth', 'gender', 'country', 'mobile')
+        fields = ('institution', 'skills', 'date_of_birth', 'gender', 'country', 'mobile', 'avatar')
 
     def clean_mobile(self):
         #  Merge country code with the mobile number

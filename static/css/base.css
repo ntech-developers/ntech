@@ -10,8 +10,8 @@ body {
     margin: 2px;
     width: 100%;
     overflow: hidden;
-    background-size: 100% 100%;
     background: var(--bright-background) no-repeat;
+    background-size: 100% 100%;
 }
 
 a {
@@ -73,6 +73,38 @@ a {
     display: inline-flex;
     margin: 0 auto;
     justify-content: center;
+}
+
+.thumbnail {
+    height: 35px;
+    width: 35px;
+    border-radius: 18px;
+}
+
+.menu-img {
+    border-radius: 50%;
+}
+
+.medium-profile-image {
+    height: 180px;
+    width: 180px;
+    border-radius: 90px;
+    box-shadow: 0 0 6px 2px var(--universal-text-color);
+    margin: 15px 6px;
+}
+
+.force-centre, .force-centre::before {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide-scroll-bar {
+    overflow: hidden !important;
+}
+
+.hide-scroll-bar:hover {
+    overflow: auto !important;
 }
 
 .img {
@@ -374,7 +406,12 @@ a, a:visited {
 
 .menuitem-v img, .menuitem-v i::before {
     width: 20px;
+    height: 20px;
     margin-right: 15px;
+}
+
+.menuitem-v img {
+    border-radius: 10px;
 }
 
 #menu-list-actions {
@@ -431,9 +468,10 @@ a, a:visited {
 }
 
 .tab-button-holder {
-    height: 8%;
+    height: auto;
     display: block;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .tab-scrolled-body {
@@ -581,5 +619,11 @@ a, a:visited {
 
     #menu-actions {
         display: none;
+    }
+
+    #reset_password, #update_info {
+        float: left;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }

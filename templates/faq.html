@@ -15,7 +15,10 @@
         </ul>
     </div>
     <div id="menu-actions" class="menubar force-right">
-        <a class="medium-description blue"><i class="ion-ios-person"></i>&nbsp;{{ user.username }}</a>&nbsp;
+        <a class="medium-description blue" href={% url "accounts:profile" %}>
+            <img class="thumbnail left" src="{{ user.profile.get_avatar }}">&nbsp;
+            {{ user.username }}
+        </a>&nbsp;
         <a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
                 class="ion-log-out"></i></a>
     </div>
@@ -39,8 +42,19 @@
             <ul role="menubar">
                 <li class="menuitem-v blue"><a href={% url "accounts:register" %}><i class="ion-ios-person"></i>Register</a>
                 </li>
-                <li class="menuitem-v blue"><a href={% url "accounts:logout" %}><i class="ion-log-out"></i>&nbsp;Sign
-                    out</a></li>
+                {% if user.is_authenticated %}
+                    <li class="menuitem-v blue">
+                        <a href={% url "accounts:profile" %}>
+                            <img class="user-img" src="{{ user.profile.get_avatar }}">
+                            {{ user.username }}
+                        </a>
+                    </li>
+                    <li class="menuitem-v blue"><a href={% url "accounts:logout" %}><i class="ion-log-out"></i>&nbsp;Sign
+                        out</a></li>
+                {% else %}
+                    <li class="menuitem-v blue"><a href={% url "accounts:login" %}><i class="ion-log-in blue"></i>Sign
+                        in</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

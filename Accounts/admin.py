@@ -12,11 +12,13 @@ class ProfileAdmin(ModelAdmin):
     list_filter = ('country', 'institution', 'gender')
     fieldsets = (
         (table_name,
-         {'fields': ('user', 'institution', 'skills', 'date_of_birth', 'gender', 'country', 'mobile')}),
+         {'fields': ('user', 'institution', 'skills', 'date_of_birth', 'gender', 'country', 'mobile', 'avatar')}),
+        ('Profile image',
+         {'fields': ('avatar_tag',)}),
     )
     search_fields = ('institution',)
     ordering = ('institution',)
-    readonly_fields = ('user',)
+    readonly_fields = ('user', 'avatar_tag')
     filter_horizontal = ()
 
 

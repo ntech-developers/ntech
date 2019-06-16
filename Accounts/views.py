@@ -1,7 +1,8 @@
+from PIL import Image
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseServerError
 from django.shortcuts import render, redirect
 
 from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm, PasswordChangeForm
@@ -95,3 +96,25 @@ def password_reset(request):
         return JsonResponse({"successful": True})
     else:
         return JsonResponse({"successful": False})
+
+
+# noinspection PyBroadException
+@login_required
+def upload_profile_image(req):
+    # Image cropping and thumbnail creation
+    req.user.profile.avatar.delete()
+    req.user.profile.avatar = req.FILES.get("image")
+    req.user.profile.save()
+    try:
+        image = Image.open(req.user.profile.avatar)
+        image = image.resize((int(float(req.POST.get("width", 200))),
+                              int(float(req.POST.get("height", 200)))), Image.ANTIALIAS)
+        x, y, std_length = (int(float(req.POST.get("x", 0))),
+                            int(float(req.POST.get("y", 0))),
+                            int(float(req.POST.get("side_len", 180))))
+        image = image.crop((x, y, x + std_length, y + std_length))
+        image.save(req.user.profile.avatar.path)
+    except Exception:
+        return HttpResponseServerError("An error occurred while processing Image.")
+
+    return JsonResponse({"src": [req.user.profile.avatar.url]})

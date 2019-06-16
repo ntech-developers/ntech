@@ -16,7 +16,10 @@
         </ul>
     </div>
     <div id="menu-actions" class="menubar force-right">
-        <a class="medium-description blue"><i class="ion-ios-person"></i>&nbsp;{{ user.username }}</a>&nbsp;
+        <a class="medium-description blue" href={% url "accounts:profile" %}>
+            <img class="thumbnail left user-img" src="{{ user.profile.get_avatar }}">&nbsp;
+            {{ user.username }}
+        </a>&nbsp;
         <a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
                 class="ion-log-out"></i></a>
     </div>
@@ -26,6 +29,7 @@
 {% block content %}
     {% include "profile_update.html" %}
     {% include "passsword_reset.html" %}
+    {% include "image_cropper.html" %}
     <div class="overlay invisible">
         <!--For responsive menu. Ensure it is present for pages with the responsive menu-->
         <div id="menu-list" class="ruled hidden">
@@ -49,16 +53,20 @@
     <div class="tab-structure">
         <div class="tab-nav">
             <p id="personal" class="nav-item"><i class="ion-ios-person"></i>&nbsp;Personal info</p>
-            <p id="awards" class="nav-item"><i class="ion-ios-box"></i>&nbsp;Awards</p>
             <p id="team" class="nav-item"><i class="ion-ios-people"></i>&nbsp;Teams</p>
+            <p id="awards" class="nav-item"><i class="ion-ios-box"></i>&nbsp;Awards</p>
         </div>
         <div class="tab-body">
             <div class="tab-content tab-selected" id="_personal">
-                <div class="tab-button-holder">
-                    <button class="blue-btn right slight-margin" id="update_info">Change</button>
-                    <button class="blue-btn right slight-margin" id="reset_password">Reset password</button>
-                </div>
                 <div class="tab-scrolled-body">
+                    <div class="container">
+                        <img class="medium-profile-image user-img" src="{{ user.profile.get_avatar }}">
+                    </div>
+                    <div class="tab-button-holder force-centre">
+                        <button class="blue-btn slight-margin" id="update_info">Change</button>
+                        <button class="blue-btn slight-margin" id="reset_password">Reset password</button>
+                        <button class="blue-btn slight-margin" id="update-profile">Change profile image</button>
+                    </div>
                     <p class="small-description ruled limit-width" style="padding-bottom: 10px;"><i
                             class="ion-ios-person"></i>&nbsp;Personal detail</p>
                     <div class="detail-group">
@@ -106,7 +114,7 @@
                     <div class="detail-group">
                         <p class="small-description ruled limit-width" style="padding-bottom: 10px;"><i
                                 class="ion-android-call"></i>&nbsp;Contact information</p>
-                        <div class="detail-pack">
+                        <div class="detail-pack" style="max-width: 600px">
                             <p class="label">Email</p>
                             <p class="value">{{ user.email }}</p>
                         </div>
@@ -156,4 +164,5 @@
         Initial.email = "{{ user.email }}";
         activate_tags();
     </script>
+    <script src={% static "js/image_cropper.js" %}></script>
 {% endblock %}

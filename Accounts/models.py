@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils.html import mark_safe
 
 from Info.models import Institution, Country
 
@@ -29,6 +30,7 @@ class Profile(models.Model):
     country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True)
     institution = models.ForeignKey(Institution, null=True, on_delete=models.SET_NULL)
     skills = models.TextField(null=True, blank=True)
+    avatar = models.ImageField(upload_to="avatars", blank=True)
 
     def __str__(self):
         return self.user.username
@@ -52,6 +54,13 @@ class Profile(models.Model):
 
     def compress_mobile(self, code, number):
         return safe_int(str(code) + str(number))
+
+    def get_avatar(self):
+        # avatar
+        return self.avatar.url if self.avatar else "/static/images/placeholder.png"
+
+    def avatar_tag(self):
+        return mark_safe('<img src="{}" alt="avatar" width="180" height="180"/>'.format(self.get_avatar()))
 
     class Meta:
         db_table = "profile"

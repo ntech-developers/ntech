@@ -245,7 +245,7 @@ function validate_password(field, error, confirm_field = null, checklist = Check
 function submit(event, on_valid = null) {
     event.preventDefault(1);
     $("input").trigger("blur"); // Force validations to be carried out by the inputs
-    $(this).find(".loader-img").removeClass("hidden");
+    $(event.target).find(".loader-img").removeClass("hidden");
     let failed = false;
     let fail_location = [];
     for (let key in CheckList) {
@@ -321,7 +321,7 @@ field_is_required($("#email"), $("#em-err"));
 // =================================== login validators ==================================
 
 const csrf = document.getElementsByName("csrfmiddlewaretoken")[0].value;
-
+let allow_submit = false;
 function pre_authenticate() {
     if (!$("#id_password").val() || !$("#id_username").val()) return;
     $("#id_password").parent().addClass("load-mode"); // start loader
@@ -333,6 +333,7 @@ function pre_authenticate() {
         success: function (response) {
             switch (response.status) {
                 case 0:
+                    allow_submit = true;
                     $("#sign_in").trigger("click");
                     break;
                 case 1:
@@ -353,6 +354,13 @@ function pre_authenticate() {
 field_is_required($("#id_username"), $("#lun-err"));
 field_is_required($("#id_password"), $("#lpw-err"));
 $("#pre-submit").click(pre_authenticate);
+$("#login-form").submit((event) => {
+    if (!allow_submit) {
+        pre_authenticate();
+        event.preventDefault();
+        return false;
+    }
+});
 
 // =============================== user info update ======================================
 
