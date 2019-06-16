@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <div class="complete-overlay hidden" id="password-reset-popup">
     <i id="cancel_reset" class="ion-ios-close-empty medium-description round-btn float-top-left"></i>
-    <form id="password-reset" method="post" class="floating-form limit-width">
+    <form id="password-reset" method="post" class="floating-form limit-width" autocomplete="off">
         {% csrf_token %}
         <p class=" container medium-description blue limit-width">
             Password reset
