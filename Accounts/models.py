@@ -1,4 +1,6 @@
+import os
 from datetime import date
+from uuid import uuid4
 
 from django.contrib.auth.models import User
 from django.db import models
@@ -16,6 +18,12 @@ def safe_int(val):
         return 0
 
 
+def get_unique_path(_, filename):
+    ext = filename.split('.', 1)[-1]
+    filename = "{}.{}".format(uuid4(), ext)
+    return os.path.join('avatars', filename)
+
+
 class Profile(models.Model):
     GENDER = (
         ('Male', 'Male'),
@@ -30,7 +38,7 @@ class Profile(models.Model):
     country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True)
     institution = models.ForeignKey(Institution, null=True, on_delete=models.SET_NULL)
     skills = models.TextField(null=True, blank=True)
-    avatar = models.ImageField(upload_to="avatars", blank=True)
+    avatar = models.ImageField(upload_to=get_unique_path, blank=True)
 
     def __str__(self):
         return self.user.username

@@ -66,6 +66,9 @@
                         <button class="blue-btn slight-margin" id="update_info">Change</button>
                         <button class="blue-btn slight-margin" id="reset_password">Reset password</button>
                         <button class="blue-btn slight-margin" id="update-profile">Change profile image</button>
+                        {% if user.is_staff %}
+                            <button class="blue-btn slight-margin"><a href="/config">Admin panel</a></button>
+                        {% endif %}
                     </div>
                     <p class="small-description ruled limit-width" style="padding-bottom: 10px;"><i
                             class="ion-ios-person"></i>&nbsp;Personal detail</p>

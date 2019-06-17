@@ -5,15 +5,18 @@ let image_cropper = {
     events_bound: false,
     prev_source: "blank.gif",
     prev_aspect_ratio: 1,
-    prev: {x: 0, y: 0, width: 180, height: 180, src: 'blank.gif', ratio: 1},
+    prev: {x: 0, y: 0, width: 180, height: 180, src: 'blank.gif', ratio: 1, file: null},
     image: undefined,
+    file: undefined,
     reload_prev: function () {
         this.aspect_ratio = this.prev.ratio;
         this.resize(this.prev.width, null, true);
         this.floating_pos = {x: this.prev.x, y: this.prev.y};
         this.pos = {x: this.prev.x, y: this.prev.y};
-        this.reposition();
+        this.reposition(true);
         this.image.src = this.prev.src;
+        this.file = this.prev.file;
+        this.document.getElementById("img-upload").files = this.file;
     },
     reposition: function (correction = false) {
         if (!correction) {
@@ -103,7 +106,6 @@ let image_cropper = {
         }
     },
     resize: function (width, height = null, force = false) {
-        console.log(width, height);
         if (!height && ((width > 200 && width * this.aspect_ratio > 200) || force)) {
             this.image.style.width = `${width}px`;
             this.image.style.height = `${width * this.aspect_ratio}px`;
@@ -138,7 +140,6 @@ let image_cropper = {
         if (!this.events_bound) {
             $("#zoom-in").click((event) => this.zoom_in(event));
             $("#zoom-out").click((event) => this.zoom_out(event));
-            $("#cancel-crop").click(() => image_cropper.finalize(true));
             $("#finish-upload").click(() => this.finalize());
         }
         this.image.style.cursor = "grab";
@@ -152,7 +153,7 @@ let image_cropper = {
         }
     },
     finalize: function (cancel = false) {
-        if (!this.image)
+        if (!this.image || !this.file)
             $("#zoom-in,#zoom-out,#finish-upload").addClass("center-pos");
         this.initialized = false;
         this.image.style.cursor = "default";
@@ -160,15 +161,17 @@ let image_cropper = {
             this.reload_prev();
             return;
         }
+        this.file = document.getElementById("img-upload").files[0];
         this.prev = {
             x: this.pos.x,
             y: this.pos.y,
             ratio: this.aspect_ratio,
             width: this.image.width,
-            src: this.image.src
+            src: this.image.src,
+            file: this.file,
         };
         let data = new FormData();
-        data.append("image", document.getElementById("img-upload").files[0]);
+        data.append("image", this.file);
         data.append("x", Math.abs(this.pos.x));
         data.append("y", Math.abs(this.pos.y));
         data.append("width", this.image.width);
@@ -179,8 +182,15 @@ let image_cropper = {
     }
 };
 
-$("#cancel-crop").click(() => $("#image-crop-popup").addClass("hidden"));
-$("#update-profile").click(() => $("#image-crop-popup").removeClass("hidden"));
+$("#cancel-crop").click(() => {
+    $("#image-crop-popup").addClass("hidden");
+});
+$("#update-profile").click(() => {
+    $("#image-crop-popup").removeClass("hidden");
+    if (image_cropper.file) {
+        image_cropper.initialize("uploaded-img");
+    }
+});
 
 function read_file(event, input, output, callback = function () {
     image_cropper.initialize("uploaded-img")
