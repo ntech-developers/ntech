@@ -51,6 +51,15 @@
         </div>
     </div>
     <div class="tab-structure">
+        <!--
+        To utilise the tab utility, add the tab selector in the tab-nav div first
+        Then add the tab body in the tab-body div
+        Supposing the id of the selector is "personal" then the body id will be "_personal"
+        An underscore is appended to allow the tab rendering utility to handle switches for you
+        All tab selectors should have the class nav-item
+        All tab bodies should have the class tab-content
+        The entire tab structure should then be used to initialize a Notebook instance. See script below for example.
+        -->
         <div class="tab-nav">
             <p id="personal" class="nav-item"><i class="ion-ios-person"></i>&nbsp;Personal info</p>
             <p id="team" class="nav-item"><i class="ion-ios-people"></i>&nbsp;Teams</p>
@@ -162,6 +171,7 @@
 {% block scripts %}
     <script src={% static "js/validators.js" %}></script>
     <script>
+        //Let's now bind our tab arrangement to the rendering class Notebook
         const DashboardTab = new NoteBook($(".tab-structure"));
         Initial.username = "{{ user.username }}";
         Initial.email = "{{ user.email }}";

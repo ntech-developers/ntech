@@ -144,14 +144,14 @@
         </div>
         <p class=" container medium-description waypoint" style="color: #3d8aff">Classification information</p>
         <div class="container limit-width" style="height: 60px">
-            <div class="input-layer select-layer" tabindex="0">
+            <div class="input-layer select-layer" tabindex="0" style="width: 45%;">
                 <select class="select" id="gender" name="gender">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
                 <p class="error" id="gn-err"></p>
             </div>
-            <div class="input-layer select-layer" tabindex="0">
+            <div class="input-layer select-layer" tabindex="0" style="width: 45%;">
                 <select id="country" name="country">
                     {% for country in form.countries %}
                         <option value="{{ country.id }}">

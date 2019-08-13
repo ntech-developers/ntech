@@ -69,7 +69,6 @@ $("#date_of_birth").change(function () {
 
 let selected = [];
 $("#skill-select").change(function () {
-    console.log("skill");
     if (selected.indexOf($(this).val().trim()) < 0 && $(this).val().trim().toLowerCase() !== "select skill") {
         let value = $(this).val().trim();
         let input = $("#skill");
@@ -371,13 +370,19 @@ $("#cancel_update").click(function () {
     $("#floating-form").addClass("hidden");
 });
 
-$("#submit-update").click(function (event) {
-    event.preventDefault();
-    update_info(event);
-});
+$("#submit-update").click(update_info);
+const prev_info = $("#update-form").serialize();
+
+function change_detected() {
+    return prev_info !== $("#update-form").serialize();
+}
 
 function update_info(event) {
     event.preventDefault();
+    if (!change_detected()) {
+        $("#floating-form").addClass("hidden");
+        return;
+    }
     CheckList.password1 = true;
     CheckList.password2 = true;
     event.target = this;

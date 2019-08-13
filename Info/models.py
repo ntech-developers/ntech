@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models as md
 from django.utils.html import mark_safe
 
@@ -31,3 +33,18 @@ class Institution(md.Model):
 
     class Meta:
         db_table = "institution"
+
+
+class Event(md.Model):
+    name = md.CharField(max_length=255)
+    start_date = md.DateField()
+    start_time = md.TimeField()
+    end_date = md.DateField()
+    end_time = md.TimeField()
+    description = md.TextField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = "event"

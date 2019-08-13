@@ -37,7 +37,21 @@ class CountryAdmin(ModelAdmin):
     readonly_fields = ('flag_tag',)
 
 
+class EventAdmin(ModelAdmin):
+    # The forms to add and change institution
+    table_name = 'Event'
+    list_display = ('name', 'start_date', 'start_time', 'end_date', 'end_time',)
+    fieldsets = (
+        ("new {}".format(table_name), {'fields': ('name', 'start_date', 'start_time', 'end_date', 'end_time',
+                                                  'description')}),
+    )
+
+    search_fields = ('name', 'start_time', 'start_date')
+    ordering = ('start_date', 'start_time')
+
+
 admin.site.register(Institution, InstitutionAdmin)
 admin.site.register(Country, CountryAdmin)
+admin.site.register(Event, EventAdmin)
 
 admin.site.site_header = "Ntech admin panel"

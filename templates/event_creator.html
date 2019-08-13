@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<div class="complete-overlay force-centre hidden" id="new_event">
+    <form class="floating-form limit-width height-auto" autocomplete="off">
+        <div class="input-layer">
+            <span class="placeholder"><i class="ion-android-create"></i>&nbsp;&nbsp;Event Title</span>
+            <input id="sc-name" type="text" name="name" class="data" title="title"><br>
+            <div class="flash"></div>
+            <div class="flash-inactive"></div>
+            <p class="error" id="nm-err"></p>
+        </div>
+        <p class="error" id="ct-err"></p>
+        <div class="container limit-width" style="padding-bottom: 0">
+            <div class="input-layer " style="width: 45%">
+                    <span class="placeholder placeholder-hidden"><i
+                            class="ion-calendar"></i>&nbsp;&nbsp;Start date</span>
+                <input id="start_date" type="date" class="data" name="start_date" title="Start date"><br>
+                <div class="flash"></div>
+                <div class="flash-inactive"></div>
+                <p class="error" id="sd-err"></p>
+            </div>
+            <div class="input-layer " style="width: 45%">
+                    <span class="placeholder placeholder-hidden"><i
+                            class="ion-ios-time"></i>&nbsp;&nbsp;Start time</span>
+                <input id="start_time" value="00:00" type="time" class="data" name="start_time" title="Start time"><br>
+                <div class="flash"></div>
+                <div class="flash-inactive"></div>
+                <p class="error" id="st-err"></p>
+            </div>
+        </div>
+        <div class="container limit-width" style="padding-bottom: 0">
+            <div class="input-layer " style="width: 45%">
+                    <span class="placeholder placeholder-hidden"><i
+                            class="ion-calendar"></i>&nbsp;&nbsp;End date</span>
+                <input id="end_date" type="date" class="data" name="end_date" title="End date"><br>
+                <div class="flash"></div>
+                <div class="flash-inactive"></div>
+                <p class="error" id="ed-err"></p>
+            </div>
+            <div class="input-layer " style="width: 45%">
+                    <span class="placeholder placeholder-hidden"><i
+                            class="ion-ios-time"></i>&nbsp;&nbsp;End time</span>
+                <input id="end_time" value="00:00" type="time" class="data" name="end_time" title="End time"><br>
+                <div class="flash"></div>
+                <div class="flash-inactive"></div>
+                <p class="error" id="et-err"></p>
+            </div>
+        </div>
+        <div class="height-auto limit-width">
+            <p class="small-description blue slight-margin">Description</p>
+            <textarea id="description" name="description" class="limit-width"></textarea>
+            <p class="error" id="ds-err"></p>
+        </div>
+        <div class="container" style="margin-top: 20px">
+            <button id="cancel-event" class="blue-btn" type="button" style="height: 35px">
+                <i class="ion-ios-close-empty"></i>&nbsp;
+                Cancel
+            </button>
+            <button id="add-event" class="blue-btn" type="button" style="height: 35px">
+                <i class="ion-ios-plus-empty"></i>&nbsp;
+                Add event
+            </button>
+        </div>
+    </form>
+</div>

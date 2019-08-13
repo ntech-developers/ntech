@@ -2,21 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc7a63f0-fbaf-46a3-b936-1d03d2e7d1c3" name="Default Changelist" comment="Improved profile update, Added advanced object matching capabilities and added password change form.">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/schedule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/event_creator.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/ntech.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ntech.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Accounts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Info/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Info/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Info/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Info/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Info/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Info/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Info/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Info/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Info/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Info/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ntech/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ntech/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/forms.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/image_cropper.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/image_cropper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/validators.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/validators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/faq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/passsword_reset.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/passsword_reset.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile_update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/schedule.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,40 +53,45 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.28668684">
+    <splitter split-orientation="horizontal" split-proportion="0.52435786">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/registration.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="207">
-                  <caret line="61" column="65" selection-start-line="61" selection-start-column="65" selection-end-line="61" selection-end-column="65" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Accounts/models.py">
+            <entry file="file://$PROJECT_DIR$/static/js/schedule.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="259">
-                  <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+                <state relative-caret-position="-2972">
+                  <caret line="204" column="30" selection-start-line="204" selection-start-column="30" selection-end-line="204" selection-end-column="30" />
                   <folding>
-                    <element signature="e#0#43#0" expanded="true" />
+                    <element signature="n#style#0;n#font#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#font#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/static/js/validators.js">
+            <entry file="file://$PROJECT_DIR$/templates/base.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-3">
-                  <caret line="89" column="53" selection-start-line="89" selection-start-column="53" selection-end-line="89" selection-end-column="53" />
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                    <element signature="e#53#59#0" expanded="true" />
-                    <element signature="e#53#59#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="561">
+                  <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/login.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="510">
+                  <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/schedule.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1632">
+                  <caret line="96" column="9" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
                 </state>
               </provider>
             </entry>
@@ -85,57 +101,28 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/static/js/util.js">
+            <entry file="file://$PROJECT_DIR$/templates/home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="86">
-                  <caret line="144" column="41" selection-start-line="144" selection-start-column="41" selection-end-line="144" selection-end-column="41" />
-                  <folding>
-                    <element signature="e#38#44#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="680">
+                  <caret line="40" column="86" selection-start-line="40" selection-start-column="86" selection-end-line="40" selection-end-column="86" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/css/forms.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="816">
+                  <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Accounts/utilities.py">
+            <entry file="file://$PROJECT_DIR$/templates/profile.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="103">
-                  <caret line="67" column="76" selection-start-line="67" selection-start-column="76" selection-end-line="67" selection-end-column="76" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/profile_update.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="174">
-                  <caret line="138" column="21" selection-start-line="138" selection-start-column="21" selection-end-line="138" selection-end-column="21" />
-                  <folding>
-                    <element signature="n#style#0;n#button#0;n#div#12;n#form#0;n#div#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Accounts/forms.py">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/home.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="140">
-                  <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/static/css/base.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="67">
-                  <caret line="143" column="16" selection-start-line="143" selection-start-column="16" selection-end-line="143" selection-end-column="16" />
+                <state relative-caret-position="-538">
+                  <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
                 </state>
               </provider>
             </entry>
@@ -148,16 +135,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>childre</find>
-      <find>opac</find>
       <find>align=&quot;center&quot;</find>
       <find>activ</find>
       <find>cubi</find>
@@ -175,6 +160,19 @@
       <find>&lt;/input&gt;</find>
       <find>waypoint-side</find>
       <find>waypoint</find>
+      <find>/&gt;</find>
+      <find>pro</find>
+      <find>consol</find>
+      <find>select-val</find>
+      <find>height: 0</find>
+      <find>rot</find>
+      <find>comple</find>
+      <find>console</find>
+      <find>invi</find>
+      <find>cond</find>
+      <find>co</find>
+      <find>.co</find>
+      <find>box</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -183,6 +181,7 @@
       <replace>var(--universal-text-color)</replace>
       <replace>models.</replace>
       <replace>request</replace>
+      <replace>&gt;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -193,45 +192,52 @@
         <option value="murage &lt;fedelismurage@gmail.com&gt;" />
       </list>
     </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/css/ionicons.css" />
         <option value="$PROJECT_DIR$/static/css/home.css" />
         <option value="$USER_HOME$/Desktop/rockex/site/index.html" />
-        <option value="$PROJECT_DIR$/Info/forms.py" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/Accounts/backends.py" />
         <option value="$PROJECT_DIR$/static/js/waypoints.js" />
-        <option value="$PROJECT_DIR$/templates/login.html" />
-        <option value="$PROJECT_DIR$/Info/admin.py" />
-        <option value="$PROJECT_DIR$/Info/views.py" />
         <option value="$PROJECT_DIR$/Info/urls.py" />
         <option value="$PROJECT_DIR$/templates/under_construction.html" />
-        <option value="$PROJECT_DIR$/templates/schedule.html" />
-        <option value="$PROJECT_DIR$/templates/about.html" />
-        <option value="$PROJECT_DIR$/templates/faq.html" />
-        <option value="$PROJECT_DIR$/ntech/urls.py" />
-        <option value="$PROJECT_DIR$/Info/models.py" />
-        <option value="$PROJECT_DIR$/Accounts/urls.py" />
-        <option value="$PROJECT_DIR$/static/css/forms.css" />
-        <option value="$PROJECT_DIR$/static/js/util.js" />
-        <option value="$PROJECT_DIR$/Accounts/views.py" />
-        <option value="$PROJECT_DIR$/templates/profile.html" />
         <option value="$PROJECT_DIR$/static/images/loaders/tail-spin.svg" />
-        <option value="$PROJECT_DIR$/static/css/base.css" />
-        <option value="$PROJECT_DIR$/templates/registration.html" />
-        <option value="$PROJECT_DIR$/templates/home.html" />
-        <option value="$PROJECT_DIR$/templates/profile_update.html" />
-        <option value="$PROJECT_DIR$/static/js/validators.js" />
-        <option value="$PROJECT_DIR$/Accounts/models.py" />
-        <option value="$PROJECT_DIR$/Accounts/admin.py" />
-        <option value="$PROJECT_DIR$/ntech/settings.py" />
-        <option value="$PROJECT_DIR$/Accounts/forms.py" />
         <option value="$PROJECT_DIR$/Accounts/utilities.py" />
+        <option value="$PROJECT_DIR$/ntech/requirements.txt" />
+        <option value="$PROJECT_DIR$/ntech/settings.py" />
+        <option value="$PROJECT_DIR$/static/css/ionicons.css" />
+        <option value="$PROJECT_DIR$/Accounts/forms.py" />
+        <option value="$PROJECT_DIR$/Accounts/admin.py" />
+        <option value="$PROJECT_DIR$/Accounts/urls.py" />
+        <option value="$PROJECT_DIR$/Accounts/views.py" />
+        <option value="$PROJECT_DIR$/templates/image_cropper.html" />
+        <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/ntech/urls.py" />
+        <option value="$PROJECT_DIR$/Accounts/models.py" />
+        <option value="$PROJECT_DIR$/static/js/validators.js" />
+        <option value="$PROJECT_DIR$/templates/profile_update.html" />
+        <option value="$PROJECT_DIR$/templates/registration.html" />
+        <option value="$PROJECT_DIR$/templates/event_creator.html" />
+        <option value="$PROJECT_DIR$/Info/models.py" />
+        <option value="$PROJECT_DIR$/Info/admin.py" />
+        <option value="$PROJECT_DIR$/Info/forms.py" />
+        <option value="$PROJECT_DIR$/templates/passsword_reset.html" />
+        <option value="$PROJECT_DIR$/templates/faq.html" />
+        <option value="$PROJECT_DIR$/templates/about.html" />
+        <option value="$PROJECT_DIR$/Info/views.py" />
+        <option value="$PROJECT_DIR$/templates/schedule.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/static/css/base.css" />
+        <option value="$PROJECT_DIR$/static/js/util.js" />
+        <option value="$PROJECT_DIR$/static/js/image_cropper.js" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/static/css/forms.css" />
+        <option value="$PROJECT_DIR$/templates/profile.html" />
+        <option value="$PROJECT_DIR$/static/js/schedule.js" />
       </list>
     </option>
   </component>
@@ -258,21 +264,6 @@
             <path>
               <item name="ntech" type="b2602c69:ProjectViewProjectNode" />
               <item name="ntech" type="462c0819:PsiDirectoryNode" />
-              <item name="Accounts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ntech" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ntech" type="462c0819:PsiDirectoryNode" />
-              <item name="Info" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ntech" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ntech" type="462c0819:PsiDirectoryNode" />
-              <item name="ntech" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ntech" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ntech" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -284,19 +275,11 @@
             <path>
               <item name="ntech" type="b2602c69:ProjectViewProjectNode" />
               <item name="ntech" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ntech" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ntech" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ntech" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ntech" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ntech" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
           </expand>
           <select />
@@ -310,6 +293,7 @@
     <property name="MANAGE_IGNORE_FILES_PROPERTY" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last.edited.regexp" value="200:00:00" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/static/images/loaders" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -318,7 +302,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -411,84 +395,33 @@
       <workItem from="1559661882184" duration="9337000" />
       <workItem from="1559811049803" duration="15914000" />
       <workItem from="1559895337782" duration="10913000" />
-      <workItem from="1559918417057" duration="8970000" />
-    </task>
-    <task id="LOCAL-00001" summary="Initial commit">
-      <created>1557561315198</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1557561315198</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Initial commit">
-      <created>1557743832124</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1557743832134</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Django upgrade">
-      <created>1557999255895</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1557999255895</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added profile admin page handler">
-      <created>1558527842410</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1558527842410</updated>
-    </task>
-    <task id="LOCAL-00005" summary="initial commit">
-      <created>1558527857800</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1558527857800</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Added Signupform and profileupdateform">
-      <created>1558528391903</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1558528391903</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Removed Participant table and added Profile table">
-      <created>1558528454420</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1558528454420</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added logout link">
-      <created>1558528495532</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1558528495532</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Expanded registration_form function to handle sign in.">
-      <created>1558528580763</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1558528580763</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added Institution table and added country code field">
-      <created>1558528629220</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1558528629220</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added admin handlers for institution and country table">
-      <created>1558528681049</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1558528681049</updated>
+      <workItem from="1559918417057" duration="9944000" />
+      <workItem from="1560160563909" duration="3406000" />
+      <workItem from="1560330114770" duration="4566000" />
+      <workItem from="1560340010366" duration="9573000" />
+      <workItem from="1560413839564" duration="4421000" />
+      <workItem from="1560449310134" duration="2336000" />
+      <workItem from="1560514601615" duration="1930000" />
+      <workItem from="1560518324338" duration="716000" />
+      <workItem from="1560520064600" duration="8122000" />
+      <workItem from="1560585136258" duration="1588000" />
+      <workItem from="1560612712597" duration="12622000" />
+      <workItem from="1560674425554" duration="10220000" />
+      <workItem from="1560756249475" duration="13200000" />
+      <workItem from="1560964770785" duration="5388000" />
+      <workItem from="1561128909347" duration="3209000" />
+      <workItem from="1561364772146" duration="643000" />
+      <workItem from="1561366997124" duration="8022000" />
+      <workItem from="1561397650118" duration="11925000" />
+      <workItem from="1561448048131" duration="1500000" />
+      <workItem from="1562224255039" duration="35286000" />
+      <workItem from="1562399516432" duration="25407000" />
+      <workItem from="1562489245133" duration="2962000" />
+      <workItem from="1562607062521" duration="11893000" />
+      <workItem from="1562788327237" duration="3940000" />
+      <workItem from="1562919774196" duration="25608000" />
+      <workItem from="1564417267018" duration="5812000" />
+      <workItem from="1564482599557" duration="95000" />
     </task>
     <task id="LOCAL-00012" summary="Modified home function to check for authenticated users">
       <created>1558528728846</created>
@@ -637,63 +570,262 @@
       <option name="project" value="LOCAL" />
       <updated>1559928408461</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="modified pycharm optimization settings.">
+      <created>1559928621048</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1559928621048</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added helper methods to profile. Added blank=True to skills field.">
+      <created>1559928721435</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1559928721435</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Improved profile update.">
+      <created>1559928756815</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1559928756815</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Added new url routes.">
+      <created>1559928858573</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1559928858573</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Added new routing functions.">
+      <created>1559928920494</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1559928920494</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Added Notebook tab handler.">
+      <created>1559928983627</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1559928983627</updated>
+    </task>
+    <task id="LOCAL-00039" summary="changed admin site_url">
+      <created>1559929033513</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1559929033513</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Added password validators and Promises for asynchronous validations.">
+      <created>1559929115023</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1559929115023</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Template improvements.">
+      <created>1559929170208</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1559929170208</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Initial commit">
+      <created>1560331044737</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1560331044737</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Added projects table.&#10;&#10;Signed-off-by: murage &lt;fedelismurage@gmail.com&gt;">
+      <created>1560331153168</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1560331153168</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Added password reset.">
+      <created>1560346477395</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1560346477442</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Added notification utility.">
+      <created>1560349132742</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1560349132742</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Added notification utility">
+      <created>1560349163593</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1560349163593</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Added notification utility.">
+      <created>1560349308463</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1560349308463</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Added notification utility.">
+      <created>1560349598684</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1560349598684</updated>
+    </task>
+    <task id="LOCAL-00049" summary="added deployment information.">
+      <created>1560414696235</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1560414696235</updated>
+    </task>
+    <task id="LOCAL-00050" summary="added deployment information.&#10;&#10;Signed-off-by: Barracoder &lt;emmnauelobarany@gmail.com&gt;">
+      <created>1560419560558</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1560419560562</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Added deployment information.">
+      <created>1560419882274</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1560419882274</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Added deployment information.&#10;&#10;Signed-off-by: Barracoder &lt;emmnauelobarany@gmail.com&gt;">
+      <created>1560420315189</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1560420315189</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Modified allowed hosts">
+      <created>1560425165619</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1560425165619</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Improved static files handling.">
+      <created>1560514744175</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1560514744175</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Improved static files handling.&#10;&#10;Signed-off-by: Barracoder &lt;emmnauelobarany@gmail.com&gt;">
+      <created>1560516130444</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1560516130444</updated>
+    </task>
+    <task id="LOCAL-00056" summary="added a static files bug fix.">
+      <created>1560522199337</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1560522199337</updated>
+    </task>
+    <task id="LOCAL-00057" summary="added a static files bug fix.&#10;&#10;Signed-off-by: Barracoder &lt;emmnauelobarany@gmail.com&gt;">
+      <created>1560523574318</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1560523574318</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Added profile image support.">
+      <created>1560692771283</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1560692771287</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Improved login.">
+      <created>1560692912080</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1560692912080</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Image cropper bug fix.">
+      <created>1560775130416</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1560775130423</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="355782000" />
+    <option name="totallyTimeSpent" value="571146000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.26701966" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19591528" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.3633388" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.505295" side_tool="true" weight="0.27332243" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.32405892" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" weight="0.3289689" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.60720134" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.494705" visible="true" weight="0.3633388" />
+      <window_info anchor="bottom" id="Find" order="7" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.494705" weight="0.3207856" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.3289689" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.3289689" />
-      <window_info anchor="right" id="Database" order="0" weight="0.32980332" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="4" weight="0.32980332" />
-      <window_info anchor="right" id="Coverage" order="5" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" />
+      <window_info anchor="right" id="SciView" order="5" weight="0.32980332" />
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.18532526" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.14145234" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.22585924" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5045386" side_tool="true" weight="0.27332243" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Python Console" order="4" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3633388" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.32405892" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Python Console" order="4" weight="0.60720134" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.49546143" visible="true" weight="0.27332243" />
+      <window_info anchor="bottom" id="Find" order="7" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.494705" weight="0.3207856" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="4" weight="0.32980332" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3289689" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.3289689" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" />
+      <window_info anchor="right" id="SciView" order="5" weight="0.32980332" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,135 +837,37 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Removed Participant table and added Profile table" />
-    <MESSAGE value="Added logout link" />
-    <MESSAGE value="Expanded registration_form function to handle sign in." />
-    <MESSAGE value="Added Institution table and added country code field" />
-    <MESSAGE value="Added admin handlers for institution and country table" />
-    <MESSAGE value="Modified home function to check for authenticated users" />
-    <MESSAGE value="New style rules" />
-    <MESSAGE value="Changed custom dropdown functionality to allow use of select and options." />
-    <MESSAGE value="Completed validations." />
-    <MESSAGE value="Added scale-up on waypoint animation." />
-    <MESSAGE value="Added authentication check." />
-    <MESSAGE value="Modified form to fit inbuilt user model and profile design." />
-    <MESSAGE value="Data persistence" />
-    <MESSAGE value="Initial commit." />
-    <MESSAGE value="Added ajax pre authenticate for sign in. Modified logout to maintain the referring page at log out." />
-    <MESSAGE value="Added preuth, logout and profile links." />
-    <MESSAGE value="Modified the responsive menu." />
-    <MESSAGE value="Fixed clean_mobile field bug." />
-    <MESSAGE value="Added projects table." />
-    <MESSAGE value="Added object matcher" />
-    <MESSAGE value="Improved user registration." />
-    <MESSAGE value="Change url() to path()" />
-    <MESSAGE value="Added docstring and comments." />
-    <MESSAGE value="Added more style rules mostly to handle tab structure." />
+    <MESSAGE value="Improved profile update." />
+    <MESSAGE value="Added new url routes." />
+    <MESSAGE value="Added new routing functions." />
+    <MESSAGE value="Added Notebook tab handler." />
+    <MESSAGE value="changed admin site_url" />
+    <MESSAGE value="Added password validators and Promises for asynchronous validations." />
+    <MESSAGE value="Template improvements." />
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Added projects table.&#10;&#10;Signed-off-by: murage &lt;fedelismurage@gmail.com&gt;" />
+    <MESSAGE value="Added password reset." />
+    <MESSAGE value="Added notification utility" />
+    <MESSAGE value="Added notification utility." />
+    <MESSAGE value="added deployment information." />
+    <MESSAGE value="added deployment information.&#10;&#10;Signed-off-by: Barracoder &lt;emmnauelobarany@gmail.com&gt;" />
+    <MESSAGE value="Added deployment information." />
+    <MESSAGE value="Added deployment information.&#10;&#10;Signed-off-by: Barracoder &lt;emmnauelobarany@gmail.com&gt;" />
+    <MESSAGE value="Modified allowed hosts" />
+    <MESSAGE value="Improved static files handling." />
+    <MESSAGE value="Improved static files handling.&#10;&#10;Signed-off-by: Barracoder &lt;emmnauelobarany@gmail.com&gt;" />
+    <MESSAGE value="added a static files bug fix." />
     <MESSAGE value="Improved profile update, Added advanced object matching capabilities and added password change form." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved profile update, Added advanced object matching capabilities and added password change form." />
+    <MESSAGE value="added a static files bug fix.&#10;&#10;Signed-off-by: Barracoder &lt;emmnauelobarany@gmail.com&gt;" />
+    <MESSAGE value="Added profile image support." />
+    <MESSAGE value="Improved login." />
+    <MESSAGE value="Image cropper bug fix." />
+    <option name="LAST_COMMIT_MESSAGE" value="Image cropper bug fix." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/js/jquery-3.3.1.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="72288" selection-start-line="1" selection-start-column="72288" selection-end-line="1" selection-end-column="72288" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/ionicons.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="12" column="172" selection-start-line="12" selection-start-column="172" selection-end-line="12" selection-end-column="172" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/MyTimetable/static/general/javascript/utility.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="59" column="21" selection-start-line="11" selection-end-line="59" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/rockex/site/mail.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/MyTimetable/templates/SchoolInfo/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Sample pages/ilene-berg-colorlib/ilene-berg/elements.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/MyTimetable/SchoolInfo/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/MyTimetable/SchoolInfo/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="77" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/MyTimetable/MyTimetable/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-          <folding>
-            <element signature="e#645#686#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/rockex/site/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="232" column="59" selection-start-line="232" selection-start-column="59" selection-end-line="232" selection-end-column="59" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#1426#1432#0" expanded="true" />
-            <element signature="e#1432#1438#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/home.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/MyTimetable/static/controls/javascript/table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5015">
-          <caret line="297" column="47" selection-start-line="297" selection-start-column="47" selection-end-line="297" selection-end-column="47" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Accounts/backends.py" />
-    <entry file="file://$USER_HOME$/Downloads/Compressed/n-tech-master/ntech/templates/registration.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1184" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/Compressed/n-tech-master/ntech/templates/signup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-86" />
@@ -843,13 +877,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/Downloads/Compressed/n-tech-master/ntech/templates/registration/login.html" />
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/MyTimetable/SchoolInfo/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -860,79 +887,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/waypoints.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/schedule.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="35" column="53" lean-forward="true" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ntech/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/under_construction.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Info/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/MyTimetable/static/mobile/javascript/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7248">
           <caret line="478" column="57" lean-forward="true" selection-start-line="478" selection-start-column="57" selection-end-line="478" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Accounts/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Info/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/faq.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -943,49 +901,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="150" column="24" selection-start-line="150" selection-start-column="24" selection-end-line="150" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/images/loaders/tail-spin.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Accounts/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/profile_update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="138" column="21" selection-start-line="138" selection-start-column="21" selection-end-line="138" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#12;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Info/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/MyTimetable/SchoolInfo/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="47" selection-start-line="2" selection-end-line="2" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Info/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Info/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -997,104 +917,311 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/ntech/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration.html">
+    <entry file="file://$PROJECT_DIR$/Accounts/utilities.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="61" column="65" selection-start-line="61" selection-start-column="65" selection-end-line="61" selection-end-column="65" />
+        <state relative-caret-position="529">
+          <caret line="67" column="76" selection-start-line="67" selection-start-column="76" selection-end-line="67" selection-end-column="76" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/util.js">
+    <entry file="file://$PROJECT_DIR$/templates/under_construction.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="144" column="41" selection-start-line="144" selection-start-column="41" selection-end-line="144" selection-end-column="41" />
-          <folding>
-            <element signature="e#38#44#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Accounts/views.py">
+    <entry file="file://$PROJECT_DIR$/static/css/ionicons.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1462">
-          <caret line="86" column="30" lean-forward="true" selection-start-line="86" selection-start-column="30" selection-end-line="86" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/forms.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="227" column="16" selection-start-line="227" selection-start-column="16" selection-end-line="227" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="143" column="16" selection-start-line="143" selection-start-column="16" selection-end-line="143" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/validators.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="89" column="53" selection-start-line="89" selection-start-column="53" selection-end-line="89" selection-end-column="53" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#53#59#0" expanded="true" />
-            <element signature="e#53#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Accounts/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Accounts/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ntech/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        <state relative-caret-position="-1494">
+          <caret line="18" column="72" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Accounts/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/MyTimetable/SchoolInfo/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="47" selection-start-line="2" selection-end-line="2" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/MyTimetable/static/general/javascript/utility.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-115">
+          <caret line="162" column="50" lean-forward="true" selection-start-line="162" selection-start-column="50" selection-end-line="162" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/MyTimetable/static/mobile/css/dashboard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="275" column="1" lean-forward="true" selection-start-line="259" selection-end-line="275" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Accounts/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Accounts/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="72" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/MyTimetable/static/SchoolInfo/javascript/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-746" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ntech/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding>
+            <element signature="e#634#666#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/image_cropper.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="65" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Accounts/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Compressed/n-tech-master/ntech/templates/registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="119" column="56" lean-forward="true" selection-start-line="119" selection-start-column="56" selection-end-line="119" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/site-packages/django/contrib/admin/static/admin/js/timeparse.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1437">
+          <caret line="151" column="49" selection-start-line="151" selection-start-column="49" selection-end-line="151" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Accounts/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="809">
+          <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Info/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="184" column="10" lean-forward="true" selection-start-line="184" selection-start-column="10" selection-end-line="184" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#38#44#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/image_cropper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="224" column="54" selection-start-line="224" selection-start-column="54" selection-end-line="224" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Info/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="42" column="79" selection-start-line="42" selection-start-column="79" selection-end-line="42" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Info/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/waypoints.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Info/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/faq.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/passsword_reset.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="48" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/event_creator.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/validators.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6392">
+          <caret line="380" column="27" selection-start-line="380" selection-start-column="27" selection-end-line="380" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="130" column="60" selection-start-line="130" selection-start-column="60" selection-end-line="130" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="675" column="25" selection-start-line="675" selection-start-column="25" selection-end-line="675" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/ntech.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/ntech.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/schedule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2972">
+          <caret line="204" column="30" selection-start-line="204" selection-start-column="30" selection-end-line="204" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#font#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#font#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/schedule.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="96" column="9" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
+        <state relative-caret-position="680">
+          <caret line="40" column="86" selection-start-line="40" selection-start-column="86" selection-end-line="40" selection-end-column="86" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Accounts/forms.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Accounts/utilities.py">
+    <entry file="file://$PROJECT_DIR$/static/css/forms.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="67" column="76" selection-start-line="67" selection-start-column="76" selection-end-line="67" selection-end-column="76" />
+        <state relative-caret-position="816">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-538">
+          <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
         </state>
       </provider>
     </entry>

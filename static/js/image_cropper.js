@@ -216,13 +216,14 @@ function upload_image(data, image) {
         success: function (data) {
             $("#image-loader").addClass("invisible");
             $("#image-crop-popup").addClass("hidden");
-            create_message("Your profile image has been changed successfully.", 4);
+            create_message("Your profile image has been changed successfully.", 8);
             $(".user-img").attr("src", data.src[0])
         },
         error: function () {
             console.log("image upload failed");
             $("#image-loader").addClass("invisible");
-            create_message("We could not update your profile image.", 4);
+            $("#image-crop-popup").addClass("hidden");
+            create_message("We could not update your profile image. Please retry", 10, true);
         }
     });
 }

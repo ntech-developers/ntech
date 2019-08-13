@@ -1,10 +1,28 @@
 .input-layer {
-    margin: 30px auto;
+    margin: 30px auto 0;
     width: 95%;
     max-width: 400px;
     position: relative;
     height: 45px;
 }
+
+textarea {
+    height: 90px;
+    max-height: 90px;
+    min-height: 90px;
+    width: 98%;
+    min-width: 98%;
+    max-width: 98%;
+    display: block;
+    font-size: 110%;
+    font-family: Calibri, sans-serif;
+    color: var(--universal-text-color);
+    border: solid 1px var(--lively-text-color);
+    border-bottom: solid 2px var(--lively-text-color);
+    padding: 3px;
+    background: inherit;
+}
+
 
 .sign-in-logo {
     display: block;
@@ -21,6 +39,13 @@
     width: 96%;
     padding: 2% 2% 2% 0;
     margin: 0 auto;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .errorlist li {
@@ -108,28 +133,27 @@ input {
 }
 
 .select {
-    width: auto;
+    width: 100%;
     color: var(--lively-text-color);
     font-family: Calibri, sans-serif;
     font-size: 100%;
     list-style: none;
-    transition: all 0.3s ease-in;
-    transform: scale(0);
-    max-height: 180px;
+    transition: all 1s var(--easing);
     height: auto;
-    position: absolute;
-    top: 41px;
+    position: relative;
     box-shadow: 0 0 2px 1px #b1b1b1;
     border-radius: 0 0 10px 10px;
-    overflow-y: auto;
     overflow-x: hidden;
     z-index: 500;
     background: #f7f7f7;
     padding-top: 5px;
 }
 
-.select-visible {
-    transform: scale(1);
+.select-invisible {
+    height: 0 !important;
+    box-shadow: none;
+    overflow: hidden;
+    z-index: 0;
 }
 
 .select .option {
@@ -147,10 +171,10 @@ input {
 }
 
 .select-val, .block-input {
-    width: 100% !important;
+    width: 80% !important;
     background: rgba(240, 240, 240, 0.5);
     height: 40px;
-    padding: 0 20px 0 20px;
+    padding: 0 10% 0 10%;
     border-radius: 5px;
     font-family: Calibri, sans-serif;
     font-size: 100%;
@@ -171,15 +195,11 @@ input {
     width: fit-content;
     overflow: visible;
     margin: 15px auto;
-    display: flex;
+    display: block;
 }
 
 .select-layer select {
     display: none;
-}
-
-.rotated {
-    transform: rotate(180deg);
 }
 
 .limit-width {

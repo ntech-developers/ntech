@@ -3,6 +3,205 @@
 {% block styles %}
     {% comment "additional stylesheets for this template go here" %}{% endcomment %}
     <link rel="stylesheet" href={% static "css/home.css" %}>
+    <link rel="stylesheet" href={% static "css/forms.css" %}>
+    <style>
+        #schedule-body {
+            width: 98%;
+            margin: 1%;
+            height: 96%;
+        }
+
+        .schedule-nav {
+            height: 7%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #schedule-content {
+            height: 84%;
+            width: 100%;
+            overflow: auto;
+        }
+
+        .schedule-controls, #schedule-current {
+            height: auto;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .schedule-controls {
+            float: right;
+            width: fit-content;
+            max-width: 300px;
+        }
+
+        .schedule-controls .select-val {
+            height: 30px;
+        }
+
+        .search-input {
+            width: 40%;
+            max-width: 250px;
+            padding: 0 10px 0 10px;
+            border: solid 1px var(--universal-text-color);
+            border-radius: 8px;
+            font-family: Calibri, sans-serif;
+            color: var(--lively-text-color);
+            background: inherit;
+            height: 30px;
+            font-size: 110%;
+            display: inline-block;
+        }
+
+        .inline-select-layer {
+            position: relative;
+            display: inline-block !important;
+            margin: 0 10px 0 10px;
+            height: 32px;
+        }
+
+        .content {
+            overflow: hidden !important;
+        }
+
+        #schedule-current {
+            padding: 5px 0 0 0;
+            margin-left: 2%;
+            justify-content: left;
+            font-family: Calibri, sans-serif;
+            color: var(--universal-text-color);
+        }
+
+        .event-collection {
+            width: 96%;
+            max-width: 900px;
+            margin: 15px auto;
+            box-shadow: 0 0 2px 2px #ccc;
+            border-radius: 5px;
+            height: fit-content;
+            transition: all 1s var(--easing);
+            overflow: hidden;
+            animation: fadein 0.4s ease-in;
+            position: relative;
+        }
+
+        .event-control, .event-item-title {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            border-bottom: solid 1px #ccd8ff;
+            font-family: Calibri, sans-serif;
+            justify-content: space-between;
+        }
+
+        .event-item {
+            width: 96%;
+            margin: 30px auto;
+            position: relative;
+            height: fit-content;
+        }
+
+        .event-item-title {
+            position: relative;
+            background: rgba(113, 197, 241, 0.24);
+            height: 30px;
+        }
+
+        .duration {
+            position: absolute;
+            top: 29px;
+            height: 70%;
+            align-items: center;
+            display: inline-block;
+            left: 0;
+            width: 10%;
+            font-size: 90%;
+            font-family: Calibri, sans-serif;
+            overflow: hidden;
+        }
+
+        .duration span {
+            background: var(--bright-text-color);
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .duration-strip {
+            height: 90%;
+            background: var(--lively-text-color);
+            width: 2px;
+            position: absolute;
+            left: 7%;
+            top: 50px;
+        }
+
+        .force-bottom {
+            position: absolute;
+            bottom: 0;
+        }
+
+        .event-item-title .round-btn-2 {
+            height: 25px;
+            width: 25px;
+            border-radius: 13px;
+            background: transparent;
+        }
+
+        .event-item-title .round-btn-2:hover {
+            box-shadow: inset 0 0 0 13px var(--lively-text-color);
+        }
+
+        .event-item-holder {
+            margin-bottom: 10px;
+        }
+
+        .event-item-body {
+            font-family: "Segoe UI", sans-serif;
+            padding: 10px 0 10px 0;
+        }
+
+        .event-item-body, .event-item-title {
+            width: 90%;
+            left: 10%;
+            position: relative;
+        }
+
+        .event-collapsed {
+            height: 40px !important;
+        }
+
+        @media screen and (max-width: 560px) {
+            .event-item-title, .event-item-body {
+                width: 80%;
+                font-size: 90%;
+                left: 20%;
+            }
+
+            .duration {
+                width: 20%;
+            }
+
+            .duration-strip {
+                left: 11%;
+            }
+
+            .schedule-controls .round-btn-2 {
+                width: 25px;
+                height: 25px;
+                border-radius: 13px;
+                font-size: 15px;
+                margin: 1px;
+            }
+
+            #schedule-current {
+                font-size: 80%;
+            }
+        }
+    </style>
 {% endblock %}
 {% block header %}
     <div class="menubar">
@@ -15,17 +214,25 @@
         </ul>
     </div>
     <div id="menu-actions" class="menubar force-right">
-        <a class="medium-description blue" href={% url "accounts:profile" %}>
-            <img class="thumbnail left" src="{{ user.profile.get_avatar }}">&nbsp;
-            {{ user.username }}
-        </a>&nbsp;
-        <a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
+        {% if user.is_authenticated %}
+            <a class="medium-description blue" href={% url "accounts:profile" %}>
+                <img class="thumbnail left" src="{{ user.profile.get_avatar }}">&nbsp;
+                {{ user.username }}
+            </a>&nbsp;
+            <a title="Sign out" class="medium-description round-btn" href={% url "accounts:logout" %}><i
                 class="ion-log-out"></i></a>
+        {% else %}
+            <a class="medium-description blue" href={% url "accounts:login" %}><i class="ion-ios-person"></i>&nbsp;Sign
+                in</a>
+        {% endif %}
     </div>
     <p id="menu-btn" class="menubar force-right" style="padding: 0 10px 0 10px"><i
             class="ion-android-menu medium-description" style="font-size: 1.5em"></i></p>
 {% endblock %}
 {% block content %}
+    {% if user.is_staff %}
+        {% include "event_creator.html" %}
+    {% endif %}
     <div class="overlay invisible">
         <!--For responsive menu. Ensure it is present for pages with the responsive menu-->
         <div id="menu-list" class="ruled hidden">
@@ -58,5 +265,31 @@
             </ul>
         </div>
     </div>
-    {% include "under_construction.html" %}
+    <div id="schedule-body">
+        <div class="schedule-nav">
+            <div id="schedule-current">
+                <i class="ion-ios-calendar blue" style="margin-left: 5px"></i>&nbsp;
+                <span></span>
+            </div>
+            <input type="search" class="search-input" id="search" placeholder="Search">
+            <div class="schedule-controls">
+                <i id="refresh" class="ion-android-refresh round-btn-2 slight-margin" title="refresh"></i>
+                <i id="expand" class="ion-chevron-down round-btn-2 slight-margin" title="expand all"></i>
+                <i id="collapse" class="ion-chevron-up round-btn-2 slight-margin" title="collapse all"></i>
+            </div>
+        </div>
+        <div id="schedule-content">
+            {% if user.is_staff %}
+                <i class="round-btn floating-btn ion-ios-plus-empty" id="add-event-btn"></i>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        shadow_on_scroll($(".schedule-nav"), $("#schedule-content"));
+        const csrf = '{{ csrf_token }}';
+        const s_auth = '{{ user.is_staff }}'
+    </script>
+    <script src={% static "js/schedule.js" %}></script>
 {% endblock %}

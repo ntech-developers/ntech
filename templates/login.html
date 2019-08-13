@@ -9,9 +9,9 @@
         <p class="logo-text menubar left"><img alt="ntech-logo" src={% static "images/favicon.png" %}>tech</p>
         <ul id="menubar" class="menubar left" role="menubar">
             <li class="menuitem"><a href={% url "info:home" %}>Home</a></li>
-            <li class="menuitem"><a href="#">Schedule</a></li>
-            <li class="menuitem"><a href="#">FAQ</a></li>
-            <li class="menuitem"><a href="#">About</a></li>
+            <li class="menuitem"><a href={% url "info:schedule" %}>Schedule</a></li>
+            <li class="menuitem"><a href={% url "info:faq" %}>FAQ</a></li>
+            <li class="menuitem"><a href={% url "info:about" %}>About</a></li>
         </ul>
     </div>
     <div id="menu-actions" class="menubar force-right">
@@ -26,14 +26,15 @@
 
 {% endblock %}
 {% block content %}
-    <div class="overlay hidden">
+    <div class="overlay invisible">
         <!--For responsive menu. Ensure it is present for pages with the responsive menu-->
-        <div id="menu-list" class="ruled">
+        <div id="menu-list" class="ruled hidden">
             <ul role="menubar">
                 <li class="menuitem-v"><a href={% url "info:home" %}><i class="ion-ios-home"></i>Home</a></li>
-                <li class="menuitem-v"><a href="#"><i class="ion-ios-stopwatch blue"></i>Schedule</a></li>
-                <li class="menuitem-v"><a href="#"><i class="ion-help-circled blue"></i>FAQ</a></li>
-                <li class="menuitem-v"><a href="#"><img width="20px" height="20px" alt="ntect-logo"
+                <li class="menuitem-v"><a href={% url "info:schedule" %}><i class="ion-ios-stopwatch blue"></i>Schedule</a>
+                </li>
+                <li class="menuitem-v"><a href={% url "info:faq" %}><i class="ion-help-circled blue"></i>FAQ</a></li>
+                <li class="menuitem-v"><a href={% url "info:about" %}><img width="20px" height="20px" alt="ntect-logo"
                                                         src={% static "images/favicon.png" %}>&nbsp;About</a></li>
             </ul>
             <hr style="width: 80%;margin: 20px auto">
@@ -44,7 +45,7 @@
         </div>
     </div>
     <form method="post" autocomplete="off" id="login-form">
-        <img alt="ntech" class="sign-in-logo waypoint" src={% static "images/ntech.png" %}>
+        <!--img alt="ntech" class="sign-in-logo waypoint" src={% static "images/ntech.png" %}-->
         <p class=" container medium-description waypoint blue">Access Your Account</p>
         {% csrf_token %}
         <div class="input-layer waypoint-side">
@@ -62,7 +63,7 @@
             <p class="error" id="lpw-err"></p>
         </div>
 
-        <p class="container small-description waypoint limit-width" style="display: block">
+        <p class="container small-description waypoint limit-width" style="display: block; margin-top: 20px">
             You do not have an account?&nbsp;<a class="blue" href={% url "accounts:register" %}>Sign up</a>
             &nbsp;today to be a part of us.
         </p>
